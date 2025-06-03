@@ -364,6 +364,40 @@
   background-color: #7E7761;
 }
 
+@media (max-width: 480px) {
+  .circle-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1em;
+    margin: 10px;
+  }
+
+  header {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -469,7 +503,7 @@ function toggleContent料金() {
     <button type="submit">送信</button>
 
     <input type="hidden" name="_subject" value="ノワールからのお問い合わせ">
-    <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html">
+    <input type="hidden" name="_next" value="https://https://noir-gilt.vercel.app//thanks.html">
     <input type="hidden" name="_captcha" value="false">
   </form>
 </section>
