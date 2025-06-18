@@ -52,11 +52,13 @@
       font-size: 2em;
       margin-top: 20px;
       color: #fff;
+      white-space: nowrap; /* これを追加して改行を防ぐ */
+      overflow-x: auto;
     }
 
     .small-circle-container {
       display: flex;
-      gap: 19.5px;
+      gap: -10px;
       justify-content: center;
       margin: 10px 0;
       margin-left: -73px;
@@ -290,7 +292,11 @@
     .small-text {
       font-size: 0.7em;
     }
-
+@media (max-width: 480px) {
+  header p {
+    font-size: 1.2em;  /* スマホでは少し小さく */
+  }
+}
     @media (max-width: 768px) {
       .box-container {
         grid-template-columns: repeat(2, 1fr);
