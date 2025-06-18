@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
   <title>発達支援ノワール - 放課後等デイサービス・児童発達支援</title>
   <style>
-    /* 全体共通 */
     body {
       font-family: 'M PLUS Rounded 1c', "Helvetica Neue", sans-serif;
       background-color: #FFFFFF;
@@ -18,6 +18,9 @@
 
     html {
       scroll-behavior: smooth;
+      max-width: 100%;
+  overflow-x: hidden;
+}
     }
 
     .background-image {
@@ -36,6 +39,8 @@
       color: #fff;
       text-align: center;
       padding: 40px 20px;
+      margin: 0;
+      position: relative;
       z-index: 1;
     }
 
@@ -52,48 +57,58 @@
       font-size: 2em;
       margin-top: 20px;
       color: #fff;
-      white-space: nowrap; /* これを追加して改行を防ぐ */
-      overflow-x: auto;
     }
 
     .small-circle-container {
       display: flex;
-      gap: 25px;
+      gap: 19.5px;
       justify-content: center;
       margin: 10px 0;
       margin-left: -73px;
     }
 
     .small-circle {
+      top: 10px;
       width: 4.5px;
       height: 4.5px;
       border-radius: 50%;
       background-color: rgba(169,169,169,0.9);
+      position: relative;
+      z-index: 10;
     }
 
     .overlay-text {
+      position: relative;
+      z-index: 1;
       text-align: center;
       font-size: 1em;
       font-weight: bold;
+      margin: 10px auto;
+      padding: 0;
       background-color: rgba(255,255,255,0.7);
       border-radius: 20px;
       max-width: 400px;
-      margin: 10px auto;
       text-shadow:
-       0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
-       0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff,
+       0 0 10px #fff,
+       0 0 20px #fff,
+       0 0 30px #fff,
+       0 0 40px #fff,
+       0 0 50px #fff,
+       0 0 60px #fff,
        0 0 70px #fff;
+
       box-shadow:
-       20px 0 30px rgba(255,255,255,0.6),
-       30px 0 50px rgba(255,255,255,0.5),
-       40px 0 60px rgba(255,255,255,0.2),
-      -20px 0 30px rgba(255,255,255,0.6),
-      -30px 0 50px rgba(255,255,255,0.5),
-      -40px 0 60px rgba(255,255,255,0.2),
-       0 0 20px rgba(255,255,255,0.1),
-       0 0 30px rgba(255,255,255,0.1),
-       0 0 40px rgba(255,255,255,0.1),
-       0 0 50px rgba(255,255,255,0.1);
+       20px 0 30px rgba(255, 255, 255, 0.6),
+       30px 0 50px rgba(255, 255, 255, 0.5),
+       40px 0 60px rgba(255, 255, 255, 0.2),
+      -20px 0 30px rgba(255, 255, 255, 0.6),
+      -30px 0 50px rgba(255, 255, 255, 0.5),
+      -40px 0 60px rgba(255, 255, 255, 0.2),
+       0 0 20px rgba(255, 255, 255, 0.1),
+       0 0 30px rgba(255, 255, 255, 0.1),
+       0 0 40px rgba(255, 255, 255, 0.1),
+       0 0 50px rgba(255, 255, 255, 0.1);
+      border: none;
     }
 
     .box-container {
@@ -101,18 +116,20 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       max-width: 810px;
+      max-width: 90％;
       margin: 40px auto;
     }
 
     .box {
-      background-color: rgba(255,255,255,0.85);
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 15px;
       padding: 20px;
       color: #555;
       font-weight: bold;
       text-align: left;
-      font-size: 1em;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      font-size: 1em;
+      position: relative;
     }
 
     .box::before {
@@ -126,13 +143,13 @@
       text-align: center;
       line-height: 30px;
       margin-right: 10px;
+      font-size: 1.2em;
     }
 
     .circle-container {
       display: flex;
       justify-content: center;
       margin: 40px 0;
-      flex-wrap: wrap;
     }
 
     .circle {
@@ -145,10 +162,12 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2em;
+      text-align: center;
       padding: 10px;
       box-shadow: 4px 4px 0px #696969;
+      margin-left: -20px;
       margin: 10px;
-      text-align: center;
+      position: relative;
     }
 
     .intro, .intro2 {
@@ -171,7 +190,9 @@
     }
 
     .toggle-container流れ, .toggle-container料金 {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 40px 0;
     }
 
@@ -183,35 +204,41 @@
       background-color: rgba(255,255,255,0.6);
       border: 1px solid #ccc;
       border-radius: 10px;
+      transition: background-color 0.3s ease;
       color: #9F987D;
     }
 
     .toggle-button流れ:hover, .toggle-button料金:hover {
-      background-color: #ddd;
+       background-color: #ddd;
     }
 
+    /* コンテンツのふわっと開くアニメーション用 */
     .content流れ, .content料金 {
-      max-height: 0;
-      overflow: hidden;
-      transform: scaleY(1.5);
-      transform-origin: top;
-      transition: transform 1s ease, opacity 1s ease, max-height 1s ease;
-      opacity: 0;
-      text-align: center;
+       max-height: 0;
+       overflow: hidden;
+       transform: scaleY(1.5);
+       transform-origin: top;
+       transition: transform 1s ease, opacity 1s ease, max-height 1s ease;
+       opacity: 0;
+       text-align: center;
     }
 
     .content流れ.show, .content料金.show {
       max-height: 1000px;
+      max-width: 900px;
       transform: scaleY(1);
       opacity: 1;
     }
 
     .content流れ img, .content料金 img {
-      border-radius: 40px;
-      border: 1px solid #ccc;
+      transform: scaleY(1);
+      opacity: 1;
+      display: block;
+      margin: 0 auto;
+      border-radius: 40px; /* ← 角を丸める */
+      border: 1px solid #ccc; /* ← 枠線を付ける */
       width: 80%;
       height: auto;
-      margin: 0 auto;
     }
 
     #arrow流れ, #arrow料金 {
@@ -219,13 +246,14 @@
       font-size: 0.7em;
       display: inline-block;
       transform: scaleX(2);
-      transition: transform 0.5s ease;
+      transition: transform 0.5s ease; /* 矢印回転アニメ追加 */
     }
 
-    #arrow流れ.rotate, #arrow料金.rotate {
-      transform: scaleX(2) rotate(180deg);
+    #arrow流れ.rotate, #arrow料金.rorate {
+      transform: scaleX(2) rotate(180deg); /* 矢印横伸ばし＆回転 */
     }
 
+ /* フォームを非表示にする */
     .contact-form {
       display: none;
       background-color: rgba(255, 255, 255, 0.8);
@@ -261,8 +289,6 @@
       padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
-      display: block;
-      margin: 20px auto 0 auto;
     }
 
     .contact-form button:hover {
@@ -270,50 +296,141 @@
     }
 
     footer {
-      background-color: rgba(255,255,255,0.5);
-      color: #9F987D;
-      text-align: center;
-      padding: 20px;
-      font-family: 'Kiwi Maru', cursive;
-      font-size: 1.1em;
-      letter-spacing: 2px;
+     background-color: rgba(255, 255, 255, 0.5);
+     color: #9F987D;
+     text-align: center;
+     padding: 20px 20px;     
+     margin: 0;
+     position: relative;
+     width: 100%;
+     box-sizing: border-box;
+     font-family: 'Kiwi Maru', cursive;    
+     font-size: 1.1em;
+     letter-spacing: 2px;
+     z-index: 1;
+     user-select: none;
     }
 
     footer a {
-      color: #9F987D;
-      text-decoration: none;
-      margin: 0 10px;
+     color: #9F987D;
+     text-decoration: none;
+     margin: 0 10px;
+     font-size: 1.1em;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+   footer a:hover {
+     text-decoration: underline;
     }
+  .small-text {
+    font-size: 0.7em;
+  }
 
-    .small-text {
-      font-size: 0.7em;
-    }
-@media (max-width: 480px) {
-  header p {
-    font-size: 1.2em;  /* スマホでは少し小さく */
+@media (max-width: 768px) {
+  .box-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-    @media (max-width: 768px) {
-      .box-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+@media (max-width: 480px) {
+  .box-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .overlay-text {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+  .intro, .intro2 {
+    font-size: 1em;
+    border-radius: 40px;
+    padding: 10px;
+  }
 
-    @media (max-width: 480px) {
-      .box-container {
-        grid-template-columns: 1fr;
-      }
+  .toggle-button流れ,
+  .toggle-button料金 {
+    font-size: 1em;
+    padding: 10px;
+    width: 90%;
+  }
 
-      .circle {
-        width: 80px;
-        height: 80px;
-        font-size: 1em;
-      }
-    }
+  .contact-form {
+    width: 90%;
+    padding: 15px;
+  }
+}
+    
+.contact-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 17px 27px 37px 27px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #9F987D;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background-color: #9F987D;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0 auto
+}
+
+.contact-form button:hover {
+  background-color: #7E7761;
+}
+
+@media (max-width: 480px) {
+  .circle-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1em;
+    margin: 10px;
+  }
+
+  header {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -357,18 +474,47 @@
 </section>
 
 <div class="toggle-container流れ">
-  <button class="toggle-button流れ" onclick="toggleContent流れ()">ご利用開始までの流れ <span id="arrow流れ">∨</span></button>
+  <button class="toggle-button流れ" onclick="toggleContent流れ()">
+    ご利用開始までの流れ
+    <span id="arrow流れ">∨</span>
+    </button>
+
   <div id="content流れ" class="content流れ">
-    <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ">
+    <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ" style="width:80%; height:auto;">
   </div>
 </div>
 
 <div class="toggle-container料金">
-  <button class="toggle-button料金" onclick="toggleContent料金()">ご利用料金 <span id="arrow料金">∨</span></button>
+  <button class="toggle-button料金" onclick="toggleContent料金()">
+    ご利用料金
+    <span id="arrow料金">∨</span>
+    </button>
+
   <div id="content料金" class="content料金">
-    <img src="料金.jpg" alt="ご利用料金">
+    <img src="料金.jpg" alt="ご利用料金" style="width: 80%; height: auto;">
   </div>
 </div>
+
+<script>
+function toggleContent流れ() {
+  const content = document.getElementById("content流れ");
+  const arrow = document.getElementById("arrow流れ");
+
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+}
+</script>
+
+<script>
+function toggleContent料金() {
+  const content = document.getElementById("content料金");
+  const arrow = document.getElementById("arrow料金");
+
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+}
+</script>
+
 
 <footer>
   <p><span class="small-text">© 2025 合同会社ノワール</span></p>
@@ -378,14 +524,14 @@
 <section id="contact-section" class="contact-form">
   <h2>お問い合わせ</h2>
   <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
-    <label for="name">お名前:</label>
-    <input type="text" id="name" name="name" required>
+    <label for="name">お名前:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
 
-    <label for="email">メールアドレス:</label>
-    <input type="email" id="email" name="email" required>
+    <label for="email">メールアドレス:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
 
-    <label for="message">お問い合わせ内容:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <label for="message">お問い合わせ内容:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
 
     <button type="submit">送信</button>
 
@@ -396,29 +542,17 @@
 </section>
 
 <script>
-function toggleContent流れ() {
-  const content = document.getElementById("content流れ");
-  const arrow = document.getElementById("arrow流れ");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-}
-
-function toggleContent料金() {
-  const content = document.getElementById("content料金");
-  const arrow = document.getElementById("arrow料金");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-}
-
-document.getElementById('contact-link').addEventListener('click', function(event) {
-  event.preventDefault();
-  const form = document.getElementById('contact-section');
-  form.classList.add('show');
-  setTimeout(() => {
-    form.scrollIntoView({ behavior: 'smooth' });
-  }, 100);
-});
-</script>
+  document.getElementById('contact-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    const form = document.getElementById('contact-section');
+    // まずフォームを表示する
+    form.classList.add('show');
+    // 表示状態になってから少し待ってスクロールする（0.1秒後くらい）
+    setTimeout(() => {
+      form.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
+</script>More actions
 
 </body>
 </html>
