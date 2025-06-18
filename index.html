@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
   <title>発達支援ノワール - 放課後等デイサービス・児童発達支援</title>
@@ -18,9 +17,6 @@
 
     html {
       scroll-behavior: smooth;
-      max-width: 100%;
-  overflow-x: hidden;
-}
     }
 
     .background-image {
@@ -116,7 +112,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       max-width: 810px;
-      max-width: 90％;
       margin: 40px auto;
     }
 
@@ -166,7 +161,6 @@
       padding: 10px;
       box-shadow: 4px 4px 0px #696969;
       margin-left: -20px;
-      margin: 10px;
       position: relative;
     }
 
@@ -324,7 +318,7 @@
   .small-text {
     font-size: 0.7em;
   }
-
+    
 @media (max-width: 768px) {
   .box-container {
     grid-template-columns: repeat(2, 1fr);
@@ -335,30 +329,7 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 480px) {
-  .overlay-text {
-    font-size: 0.9em;
-    padding: 10px;
-  }
-  .intro, .intro2 {
-    font-size: 1em;
-    border-radius: 40px;
-    padding: 10px;
-  }
 
-  .toggle-button流れ,
-  .toggle-button料金 {
-    font-size: 1em;
-    padding: 10px;
-    width: 90%;
-  }
-
-  .contact-form {
-    width: 90%;
-    padding: 15px;
-  }
-}
-    
 .contact-form {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 17px 27px 37px 27px;
@@ -552,7 +523,7 @@ function toggleContent料金() {
       form.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   });
-</script>More actions
+</script>
 
 </body>
 </html>
