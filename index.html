@@ -330,14 +330,32 @@
   .box-container {
     width: 95%;
     font-size: 1em;
-  }
-  .small-circle-container {
-      display: flex;
-      gap: 19px;
-      justify-content: center;
-      margin: 5px 0;
-      margin-left: -73px;
-      font-sixe: 1em;
+    }
+
+  .box {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+      padding: 20px;
+      color: #555;
+      font-weight: bold;
+      text-align: left;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      font-size: 1em;
+      position: relative;
+    }
+
+    .box::before {
+      content: "✓";
+      display: inline-block;
+      background-color: rgba(169,169,169,0.9);
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      margin-right: 10px;
+      font-size: 1.2em;
     }
   }
   
@@ -382,13 +400,13 @@
 @media (max-width: 480px) {
   .circle-container {
     justify-content: center;
-    gap: 10px;
+    gap: -20px;
     padding: 0;
   }
 
   .circle {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     font-size: 1em;
     margin: 0;
   }
