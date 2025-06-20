@@ -56,6 +56,24 @@
       color: #fff;
     }
 
+@media (max--width: 480px) {
+       header {
+    font-size: 1em;
+    padding: 10px;
+  }
+  
+  header h1 {
+      margin-top: 20px;
+  }
+
+  header p {
+      font-family: 'Kiwi Maru', cursive;
+      font-size: 2em;
+      margin-top: 20px;
+      color: #fff;
+  }
+}
+  
     .small-circle-container {
       display: flex;
       gap: 19.5px;
@@ -75,6 +93,21 @@
       margin-left; -10px
     }
 
+@media (max-width: 480px) {
+   .small-circle-container {
+      display: flex;
+      gap: 16.5px;
+      justify-content: center;
+      align-items: center;
+      margin: 1px 0 5px 0;
+      margin-left: -62px;
+   }
+  .small-circle {
+      width: 3px;
+      height: 3px;
+   }
+ }
+    
     .overlay-text {
       position: relative;
       z-index: 1;
@@ -109,6 +142,42 @@
       border: none;
     }
 
+@media (max-width: 480px) {
+    .overlay-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin: 10px auto;
+      padding: 0;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      max-width: 400px;
+      text-shadow:
+       0 0 10px #fff,
+       0 0 20px #fff,
+       0 0 30px #fff,
+       0 0 40px #fff,
+       0 0 50px #fff,
+       0 0 60px #fff,
+       0 0 70px #fff;
+
+      box-shadow:
+       20px 0 30px rgba(255, 255, 255, 0.6),
+       30px 0 50px rgba(255, 255, 255, 0.5),
+       40px 0 60px rgba(255, 255, 255, 0.2),
+      -20px 0 30px rgba(255, 255, 255, 0.6),
+      -30px 0 50px rgba(255, 255, 255, 0.5),
+      -40px 0 60px rgba(255, 255, 255, 0.2),
+       0 0 20px rgba(255, 255, 255, 0.1),
+       0 0 30px rgba(255, 255, 255, 0.1),
+       0 0 40px rgba(255, 255, 255, 0.1),
+       0 0 50px rgba(255, 255, 255, 0.1);
+      border: none;
+    }
+  }
+    
     .box-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -143,6 +212,42 @@
       font-size: 1.2em;
     }
 
+  @media (max-width: 480px) {
+    .box-container {
+    width: 95%;
+    height: 60px;
+    font-size: 0.5em;
+    gap: 3px;
+    margin: 1px 0 1px;
+    z-index: 10;
+    }
+
+  .box {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    padding: 2px;
+    color: #555;
+    font-weight: bold;
+    text-align: left;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    position: relative;
+    }
+
+    .box::before {
+      content: "✓";
+      display: inline-block;
+      background-color: rgba(169,169,169,0.9);
+      color: white;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      text-align: center;
+      line-height: 1;
+      margin-right: 1px;
+      font-size: 0.5em;
+    }
+  }
+    
     .circle-container {
       display: flex;
       justify-content: center;
@@ -166,6 +271,21 @@
       position: relative;
     }
 
+@media (max-width: 480px) {
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    line-height: 1.2;
+  }
+
+  .circle {
+    width: 50px;
+    height: 50px;
+    font-size: 0.8em;
+    margin-left: -10px;
+  }
+｝
     .intro, .intro2 {
       max-width: 630px;
       margin: 40px auto;
@@ -184,6 +304,19 @@
        0 0 60px #fff,
        0 0 70px #fff;
     }
+
+  @media (max-width: 480px) {
+  .intro, .intro2 {
+      max-width: 90%;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 140px;
+      color: #444;
+      font-size: 0.8em;
+   }
+  }
 
     .toggle-container流れ, .toggle-container料金 {
       display: flex;
@@ -291,134 +424,8 @@
       background-color: #7E7761;
     }
 
-    footer {
-     background-color: rgba(255, 255, 255, 0.5);
-     color: #9F987D;
-     text-align: center;
-     padding: 20px 20px;     
-     margin: 0;
-     position: relative;
-     width: 100%;
-     box-sizing: border-box;
-     font-family: 'Kiwi Maru', cursive;    
-     font-size: 1.1em;
-     letter-spacing: 2px;
-     z-index: 1;
-     user-select: none;
-    }
-
-    footer a {
-     color: #9F987D;
-     text-decoration: none;
-     margin: 0 10px;
-     font-size: 1.1em;
-    }
-
-   footer a:hover {
-     text-decoration: underline;
-    }
-  .small-text {
-    font-size: 0.7em;
-  }
-    
-@media (max-width: 768px) {
-  .box-container {
-    width: 95%;
-  }
-}
-@media (max-width: 480px) {
-  .small-circle-container {
-      display: flex;
-      gap: 16.5px;
-      justify-content: center;
-      align-items: center;
-      margin: 1px 0 5px 0;
-      margin-left: -62px;
-    }
-  .small-circle {
-      width: 3px;
-      height: 3px;
-  }
-    
-  .overlay-text {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      font-size: 0.8em;
-      font-weight: bold;
-      margin: 10px auto;
-      padding: 0;
-      background-color: rgba(255,255,255,0.7);
-      border-radius: 20px;
-      max-width: 400px;
-      text-shadow:
-       0 0 10px #fff,
-       0 0 20px #fff,
-       0 0 30px #fff,
-       0 0 40px #fff,
-       0 0 50px #fff,
-       0 0 60px #fff,
-       0 0 70px #fff;
-
-      box-shadow:
-       20px 0 30px rgba(255, 255, 255, 0.6),
-       30px 0 50px rgba(255, 255, 255, 0.5),
-       40px 0 60px rgba(255, 255, 255, 0.2),
-      -20px 0 30px rgba(255, 255, 255, 0.6),
-      -30px 0 50px rgba(255, 255, 255, 0.5),
-      -40px 0 60px rgba(255, 255, 255, 0.2),
-       0 0 20px rgba(255, 255, 255, 0.1),
-       0 0 30px rgba(255, 255, 255, 0.1),
-       0 0 40px rgba(255, 255, 255, 0.1),
-       0 0 50px rgba(255, 255, 255, 0.1);
-      border: none;
-    }
-  .box-container {
-    width: 95%;
-    height: 60px;
-    font-size: 0.5em;
-    gap: 3px;
-    margin: 1px 0 1px;
-    z-index: 10;
-    }
-
-  .box {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 5px;
-    padding: 2px;
-    color: #555;
-    font-weight: bold;
-    text-align: left;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    position: relative;
-    }
-
-    .box::before {
-      content: "✓";
-      display: inline-block;
-      background-color: rgba(169,169,169,0.9);
-      color: white;
-      border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      text-align: center;
-      line-height: 1;
-      margin-right: 1px;
-      font-size: 0.5em;
-    }
-   .intro, .intro2 {
-      max-width: 90%;
-      margin: 40px auto;
-      padding: 20px;
-      text-align: center;
-      background-color: rgba(255,255,255,0.7);
-      border-radius: 140px;
-      color: #444;
-      font-size: 0.8em;
-   }
-  }
-  
-.contact-form {
+@media (maz-width: 480px) {
+ .contact-form {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 17px 27px 37px 27px;
   max-width: 600px;
@@ -455,38 +462,6 @@
 .contact-form button:hover {
   background-color: #7E7761;
 }
-
-@media (max-width: 480px) {
-  .circle-container {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    line-height: 1.2;
-  }
-
-  .circle {
-    width: 50px;
-    height: 50px;
-    font-size: 0.8em;
-    margin-left: -10px;
-  }
-
-  header {
-    font-size: 1em;
-    padding: 10px;
-  }
-  
-  header h1 {
-      margin-top: 20px;
-  }
-
-  header p {
-      font-family: 'Kiwi Maru', cursive;
-      font-size: 2em;
-      margin-top: 20px;
-      color: #fff;
-  }
-
   form {
     padding: 10px;
   }
@@ -500,6 +475,37 @@
     padding: 10px 20px;
   }
 }
+
+
+    footer {
+     background-color: rgba(255, 255, 255, 0.5);
+     color: #9F987D;
+     text-align: center;
+     padding: 20px 20px;     
+     margin: 0;
+     position: relative;
+     width: 100%;
+     box-sizing: border-box;
+     font-family: 'Kiwi Maru', cursive;    
+     font-size: 1.1em;
+     letter-spacing: 2px;
+     z-index: 1;
+     user-select: none;
+    }
+
+    footer a {
+     color: #9F987D;
+     text-decoration: none;
+     margin: 0 10px;
+     font-size: 1.1em;
+    }
+
+   footer a:hover {
+     text-decoration: underline;
+    }
+  .small-text {
+    font-size: 0.7em;
+  }
 
   </style>
 </head>
