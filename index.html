@@ -697,7 +697,17 @@ function toggleContent流れ() {
   arrow.classList.toggle("rotate");
 }
 </script>
+  
+<script>
+function toggleContent料金() {
+  const content = document.getElementById("content料金");
+  const arrow = document.getElementById("arrow料金");
 
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+}
+</script>
+  
 <script>
 const slider = document.querySelector('.slider');
 const prev = document.querySelector('.slide-arrow.left');
@@ -743,6 +753,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
