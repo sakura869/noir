@@ -693,18 +693,40 @@ function toggleContent流れ() {
   const content = document.getElementById("content流れ");
   const arrow = document.getElementById("arrow流れ");
 
+  const isOpening = !content.classList.contains("show");
+
   content.classList.toggle("show");
   arrow.classList.toggle("rotate");
+
+  if (isOpening) {
+    setTimeout(() => {
+      content.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 300); // ふわっと開き始めてからスクロール
+  }
 }
 </script>
-  
-<script>
+
+  <script>
 function toggleContent料金() {
   const content = document.getElementById("content料金");
   const arrow = document.getElementById("arrow料金");
 
+  const isOpening = !content.classList.contains("show");
+
   content.classList.toggle("show");
   arrow.classList.toggle("rotate");
+
+  if (isOpening) {
+    setTimeout(() => {
+      content.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 300);
+  }
 }
 </script>
   
@@ -753,6 +775,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
