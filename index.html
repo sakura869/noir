@@ -238,34 +238,43 @@
        margin: 40px auto;
     }
 
-    .box {
-       background-color: rgba(255, 255, 255, 0.85);
-       border-radius: 15px;
-       padding: 15px;
-       color: #555;
-       font-weight: bold;
-       text-align: left;
-       box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-       font-size: 1em;
-       position: relative;
-    }
+    .box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 810px;
+  margin: 40px auto;
+}
 
-    .box::before {
-       content: "✓";
-       display: inline-block;
-       background-color: rgba(169,169,169,0.9);
-       color: white;
-       border-radius: 50%;
-       width: 30px;
-       height: 30px;
-       text-align: center;
-       line-height: 30px;
-       margin-right: 10px;
-       font-size: 1.2em;
-    }
-    .mobile-br {
-       display: none; /* 普段は改行なし */
-    }
+.box {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 15px;
+  color: #555;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  font-size: 1em;
+  position: relative;
+}
+
+.box::before {
+  content: "✓";
+  display: inline-block;
+  background-color: rgba(169,169,169,0.9);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+  .mobile-br {
+  display: none;
+}
 
 @media (max-width: 480px) {
     .box-container {
@@ -278,35 +287,9 @@
       position: relative;
     }
 
-   @media (max-width: 480px) {
-    .box {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 5px;
-      padding: 4px 0;
-      color: #555;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-      position: relative;
-
-      display: flex;
-      flex-direction: column;   /* ← 縦並び */
-      align-items: center;      /* ← 中央揃え */
-      line-height: 1.2;
-    }
-
-    .box::before {
-       content: "✓";
-       background-color: rgba(169,169,169,0.9);
-       color: white;
-       border-radius: 50%;
-       width: 15px;
-       height: 15px;
-       line-height: 15px;
-       font-size: 0.7em;
-       font-weight: bold;
-       margin-bottom: 2px;      /* ← 文字との間 */
-    }
+    .mobile-br {
+  display: none;
+}
     .mobile-br {
        display: inline; /* 狭い画面でだけ改行を表示 */
     }
@@ -318,15 +301,6 @@
     .pc-only {
      display: inline;
     }
-
-@media (max-width: 480px) {
-    .mobile-only {
-     display: inline;
-    }
-    .pc-only {
-     display: none;
-    }
-  }
   
     .circle-container {
        display: flex;
@@ -601,6 +575,12 @@
 </head>
 <body>
 
+<footer>
+  <p>お問い合わせ・SNS</p>
+  <p><a href="#contact">お問い合わせフォームへ</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+  <p class="small-text">© 2025 発達支援ノワール</p>
+</footer>
+
 <div class="background-image"></div>
 
 <header>
@@ -628,33 +608,20 @@
   
 <div class="box-container">
   <div class="box">
-  言葉の遅れが
-  <span class="mobile-only"><br>気になる</span>
-  <span class="pc-only"> 気になる</span>
+    言葉の遅れが<span class="mobile-br"><br></span>気になる
+  </div>
+  <div class="box">
+    体を動かすのが<span class="mobile-br"><br></span>苦手
+  </div>
+  <div class="box">
+    勉強について<span class="mobile-br"><br></span>いけない
+  </div>
+  <div class="box">集中力がない</div>
+  <div class="box">落ち着きがない</div>
+  <div class="box">
+    他者との<span class="mobile-br"><br></span>かかわりが苦手
+  </div>
 </div>
-
-<div class="box">
-  体を動かすのが
-  <span class="mobile-only"><br>苦手</span>
-  <span class="pc-only"> 苦手</span>
-</div>
-
-<div class="box">
-  勉強について
-  <span class="mobile-only"><br>いけない</span>
-  <span class="pc-only"> いけない</span>
-</div>
-
-<div class="box">集中力がない</div>
-<div class="box">落ち着きがない</div>
-
-<div class="box">
-  他者との
-  <span class="mobile-only"><br>かかわりが苦手</span>
-  <span class="pc-only"> かかわりが苦手</span>
-</div>
-</div>
-
   
 <div class="circle-container">
   <div class="circle">保育士</div>
@@ -781,6 +748,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
