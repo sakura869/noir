@@ -136,15 +136,12 @@
   display: none;
 }
 
-/* 画像をスリムに */
 .slider img {
-flex-shrink: 0;
-  width: 55%;
-  max-width: 420px;
+  flex-shrink: 0;
+  width: 80%;        /* ← ここを変更 */
+  max-width: 520px; /* ← 少し大きく */
   height: auto;
-
   margin: 0 24px;
-
   scroll-snap-align: center;
   border-radius: 0;
   box-shadow: none;
@@ -793,6 +790,7 @@ updateArrows();
   
 </body>
 </html>
+
 
 
 
