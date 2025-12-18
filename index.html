@@ -421,25 +421,33 @@
 
     /* コンテンツのふわっと表示（自然） */
 .content流れ, .content料金 {
-  max-height: 0;
-  overflow: hidden;
+  display: none;
   opacity: 0;
-  transform: translateY(-10px);
-  transition:
-    max-height 0.6s ease,
-    opacity 0.4s ease,
-    transform 0.4s ease;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   text-align: center;
 }
+
+.content流れ.show, .content料金.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.content流れ img,
+.content料金 img {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 40px;
+  border: 1px solid #ccc;
 @media (max-width: 480px) {
   .content流れ img,
   .content料金 img {
-    width: 115%;          /* ← もっと大きく */
+    width: 115%;
     max-width: none;
-    margin-left: -7.5%;   /* ← 中央寄せ */
-
-    border: none;         /* ← 枠線なし */
-    border-radius: 8px;   /* ← 角ほぼ四角 */
+    margin-left: -7.5%;
+    border: none;
+    border-radius: 8px;
   }
 }
 .content流れ.show, .content料金.show {
@@ -786,6 +794,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
