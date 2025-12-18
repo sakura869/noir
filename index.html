@@ -120,12 +120,14 @@
   .slide-arrow {
     display: none;
   }
-
+}
+    
 .slider {
-  display: flex;
+ display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -136,16 +138,16 @@
 
 /* 画像をスリムに */
 .slider img {
- flex-shrink: 0;
-  width: 70%;
-  max-width: 360px;
+flex-shrink: 0;
+  width: 55%;
+  max-width: 420px;
   height: auto;
 
   margin: 0 24px;
 
   scroll-snap-align: center;
-  border-radius: 12px;   /* 角丸を弱く */
-  box-shadow: none;      /* ← 枠感の原因を消す */
+  border-radius: 0;
+  box-shadow: none;
  }
 }
     
@@ -768,6 +770,7 @@ next.addEventListener('click', () => {
   
 </body>
 </html>
+
 
 
 
