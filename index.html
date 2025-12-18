@@ -74,13 +74,15 @@
       color: #fff;
     }
   }
-  <section class="slider-section">
+
+<section class="slider-section">
   <div class="slider">
-    <img src="slide1.jpg" alt="">
-    <img src="slide2.jpg" alt="">
-    <img src="slide3.jpg" alt="">
+    <img src="うま.jpg" alt="活動の様子">
+    <img src="ツリー.jpg" alt="室内の雰囲気">
+    <img src="おこじょ.jpg" alt="教材や環境">
   </div>
 </section>
+
     .small-circle-container {
        display: flex;
        gap: 20.5px;
@@ -532,7 +534,30 @@
 </div>
 
 <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
+  
+.slider-section {
+  max-width: 900px;
+  margin: 40px auto;
+  overflow: hidden;
+}
 
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+}
+
+.slider img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 25px;
+  scroll-snap-align: center;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+}
+  
 <div class="box-container">
   <div class="box">
   言葉の遅れが
@@ -662,4 +687,5 @@ function toggleContent料金() {
 
 </body>
 </html>
+
 
