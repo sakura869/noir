@@ -419,23 +419,24 @@
         background-color: #ddd;
      }
 
-    /* コンテンツのふわっと開くアニメーション用 */
-     .content流れ, .content料金 {
-        max-height: 0;
-        overflow: hidden;
-        transform: scaleY(1.5);
-        transform-origin: top;
-        transition: transform 1s ease, opacity 1s ease, max-height 1s ease;
-        opacity: 0;
-        text-align: center;
-     }
+    /* コンテンツのふわっと表示（自然） */
+.content流れ, .content料金 {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.6s ease,
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  text-align: center;
+}
 
-     .content流れ.show, .content料金.show {
-        max-height: 1000px;
-        max-width: 900px;
-        transform: scaleY(1);
-        opacity: 1;
-     }
+.content流れ.show, .content料金.show {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+}
 
      .content流れ img, .content料金 img {
         transform: scaleY(1);
@@ -775,6 +776,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
