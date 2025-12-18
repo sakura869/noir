@@ -392,7 +392,226 @@
         box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         text-align: left;
       }
-      .contact-form.show { display: block; } .contact-form h2 { text-align: center; color: #9F987D; } .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; } .contact-form button { background-color: #9F987D; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; } .contact-form button:hover { background-color: #7E7761; } @media (max-width: 480px) { .contact-form { background-color: rgba(255, 255, 255, 0.8); padding: 17px 27px 37px 27px; max-width: 600px; margin: 40px auto; border-radius: 15px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); text-align: left; } .contact-form h2 { text-align: center; color: #9F987D; } .contact-form input, .contact-form textarea { width: 100%; padding: 10px 0; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; } .contact-form button { background-color: #9F987D; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: block; margin: 20px auto 0 auto; } .contact-form button:hover { background-color: #7E7761; } form { padding: 10px; } input, textarea { font-size: 1em; } button { font-size: 1em; padding: 10px 20px; } } footer { background-color: rgba(255, 255, 255, 0.5); color: #9F987D; text-align: center; padding: 20px 20px; margin: 0; position: relative; width: 100%; box-sizing: border-box; font-family: 'Kiwi Maru', cursive; font-size: 1.1em; letter-spacing: 2px; z-index: 1; user-select: none; } footer a { color: #9F987D; text-decoration: none; margin: 0 10px; font-size: 1.1em; } footer a:hover { text-decoration: underline; } .small-text { font-size: 0.7em; } @media (max-width: 480px) { footer a { font-size: 1.1em; } } </style> </head> <body> <div class="background-image"></div> <header> <h1>発達支援ノワール</h1> <p>放課後等デイサービス<br>児童発達支援</p> </header> <div class="small-circle-container"> <div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div> </div> <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div> <section class="slider-section"> <button class="slide-arrow left" aria-label="前へ">‹</button> <div class="slider"> <img src="uma.png" alt="活動の様子"> <img src="tree.png" alt="室内の雰囲気"> <img src="okojo.png" alt="教材や環境"> </div> <button class="slide-arrow right" aria-label="次へ">›</button> </section> <div class="box-container"> <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div> <div class="box"> 体を動かすのが<span class="mobile-br"><br></span>苦手 </div> <div class="box"> 勉強について<span class="mobile-br"><br></span>いけない </div> <div class="box">集中力がない</div> <div class="box">落ち着きがない</div> <div class="box"> 他者との<span class="mobile-br"><br></span>かかわりが苦手 </div> </div> <div class="circle-container"> <div class="circle">保育士</div> <div class="circle">言語<br>聴覚士</div> <div class="circle">理学<br>療法士</div> <div class="circle">作業<br>療法士</div> <div class="circle">公認<br>心理士</div> </div> <section class="intro"> <p>多様な専門職が在籍。経験豊富なスタッフが、<br>お子様の特性に合わせた最適な対応を致します！</p> </section> <section class="intro2"> <p>生活面での不安や集団活動での悩み、<br>コミュニケーションや感覚面のサポートも行っています。</p> </section> <div class="toggle-container流れ"> <button class="toggle-button流れ" onclick="toggleContent流れ()"> ご利用開始までの流れ <span id="arrow流れ">∨</span> </button> <div id="content流れ" class="content流れ"> <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ"> </div> </div> <div class="toggle-container料金"> <button class="toggle-button料金" onclick="toggleContent料金()"> ご利用料金 <span id="arrow料金">∨</span> </button> <div id="content料金" class="content料金"> <img src="料金.jpg" alt="ご利用料金"> </div> </div> <script> function toggleContent流れ() { const content = document.getElementById("content流れ"); const arrow = document.getElementById("arrow流れ"); const isOpening = !content.classList.contains("show"); content.classList.toggle("show"); arrow.classList.toggle("rotate"); if (isOpening) { setTimeout(() => { content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300); // ふわっと開き始めてからスクロール } } </script> <script> function toggleContent料金() { const content = document.getElementById("content料金"); const arrow = document.getElementById("arrow料金"); const isOpening = !content.classList.contains("show"); content.classList.toggle("show"); arrow.classList.toggle("rotate"); if (isOpening) { setTimeout(() => { content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300); } } </script> <script> const slider = document.querySelector('.slider'); const prev = document.querySelector('.slide-arrow.left'); const next = document.querySelector('.slide-arrow.right'); function getSlideWidth() { return slider.clientWidth; } function updateArrows() { const maxScroll = slider.scrollWidth - slider.clientWidth; // 左端 if (slider.scrollLeft <= 5) { prev.style.opacity = 0; prev.style.pointerEvents = 'none'; } else { prev.style.opacity = 1; prev.style.pointerEvents = 'auto'; } // 右端 if (slider.scrollLeft >= maxScroll - 5) { next.style.opacity = 0; next.style.pointerEvents = 'none'; } else { next.style.opacity = 1; next.style.pointerEvents = 'auto'; } } prev.addEventListener('click', () => { slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' }); }); next.addEventListener('click', () => { slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' }); }); slider.addEventListener('scroll', updateArrows); window.addEventListener('load', updateArrows); </script> <footer> <p>© 2025 合同会社ノワール</p> <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p> </footer> <section id="contact-section" class="contact-form"> <h2>お問い合わせ</h2> <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post"> <label for="name">お名前:</label><br> <input type="text" id="name" name="name" required><br><br> <label for="email">メールアドレス:</label><br> <input type="email" id="email" name="email" required><br><br> <label for="message">お問い合わせ内容:</label><br> <textarea id="message" name="message" rows="5" required></textarea><br><br> <button type="submit">送信</button> <input type="hidden" name="_subject" value="ノワールからのお問い合わせ"> <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html"> <input type="hidden" name="_captcha" value="false"> </form> </section> <script> document.getElementById('contact-link').addEventListener('click', function(event) { event.preventDefault(); const form = document.getElementById('contact-section'); // まずフォームを表示する form.classList.add('show'); // 表示状態になってから少し待ってスクロールする（0.1秒後くらい） setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100); }); </script> </body> </html>
+      .contact-form.show {
+        display: block;
+      }
+      .contact-form h2 {
+        text-align: center; color: #9F987D;
+      }
+      .contact-form input, .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      .contact-form button {
+        background-color: #9F987D;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .contact-form button:hover {
+        background-color: #7E7761;
+      }
+      @media (max-width: 480px) {
+        .contact-form {
+          background-color: rgba(255, 255, 255, 0.8);
+          padding: 17px 27px 37px 27px;
+          max-width: 600px;
+          margin: 40px auto;
+          border-radius: 15px;
+          box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+          text-align: left;
+        }
+        .contact-form h2 {
+          text-align: center;
+          color: #9F987D;
+        }
+        .contact-form input, .contact-form textarea {
+          width: 100%;
+          padding: 10px 0;
+          margin-top: 5px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+        }
+        .contact-form button {
+          background-color: #9F987D;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          display: block;
+          margin: 20px auto 0 auto;
+        }
+        .contact-form button:hover {
+          background-color: #7E7761;
+        }
+        form {
+          padding: 10px;
+        }
+        input, textarea {
+          font-size: 1em;
+        }
+        button {
+          font-size: 1em;
+          padding: 10px 20px;
+        }
+      }
+      footer {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #9F987D;
+        text-align: center;
+        padding: 20px 20px;
+        margin: 0;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Kiwi Maru', cursive;
+        font-size: 1.1em;
+        letter-spacing: 2px;
+        z-index: 1;
+        user-select: none;
+      }
+      footer a {
+        color: #9F987D;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1.1em;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .small-text {
+        font-size: 0.7em;
+      }
+      @media (max-width: 480px) {
+        footer a {
+          font-size: 1.1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+    <header>
+      <h1>発達支援ノワール</h1>
+      <p>放課後等デイサービス<br>児童発達支援</p>
+    </header>
+    
+    <div class="small-circle-container">
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+    </div>
+    
+    <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
+    <section class="slider-section">
+      <button class="slide-arrow left" aria-label="前へ">‹</button>
+      <div class="slider">
+        <img src="uma.png" alt="活動の様子">
+        <img src="tree.png" alt="室内の雰囲気">
+        <img src="okojo.png" alt="教材や環境"> </div>
+      <button class="slide-arrow right" aria-label="次へ">›</button>
+    </section>
+    <div class="box-container">
+      <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div>
+      <div class="box"> 体を動かすのが<span class="mobile-br"><br></span>苦手 </div>
+      <div class="box"> 勉強について<span class="mobile-br"><br></span>いけない </div>
+      <div class="box">集中力がない</div> <div class="box">落ち着きがない</div>
+      <div class="box"> 他者との<span class="mobile-br"><br></span>かかわりが苦手 </div>
+    </div> <div class="circle-container">
+      <div class="circle">保育士</div>
+      <div class="circle">言語<br>聴覚士</div>
+      <div class="circle">理学<br>療法士</div>
+      <div class="circle">作業<br>療法士</div>
+      <div class="circle">公認<br>心理士</div>
+    </div> <section class="intro">
+      <p>多様な専門職が在籍。経験豊富なスタッフが、<br>お子様の特性に合わせた最適な対応を致します！</p>
+    </section> <section class="intro2">
+      <p>生活面での不安や集団活動での悩み、<br>コミュニケーションや感覚面のサポートも行っています。</p>
+    </section>
+    <div class="toggle-container流れ">
+      <button class="toggle-button流れ" onclick="toggleContent流れ()"> ご利用開始までの流れ
+        <span id="arrow流れ">∨</span>
+      </button>
+      <div id="content流れ" class="content流れ">
+        <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ">
+      </div>
+    </div>
+    <div class="toggle-container料金">
+      <button class="toggle-button料金" onclick="toggleContent料金()"> ご利用料金
+        <span id="arrow料金">∨</span>
+      </button>
+      <div id="content料金" class="content料金">
+        <img src="料金.jpg" alt="ご利用料金">
+      </div>
+    </div>
+    <script>
+      function toggleContent流れ() {
+        const content = document.getElementById("content流れ");
+        const arrow = document.getElementById("arrow流れ");
+        const isOpening = !content.classList.contains("show");
+        content.classList.toggle("show");
+        arrow.classList.toggle("rotate"); if (isOpening) {
+          setTimeout(() => {
+            content.scrollIntoView({behavior: "smooth", block: "center" }); }, 300);
+          // ふわっと開き始めてからスクロール } }
+        </script>
+    <script> function toggleContent料金() {
+        const content = document.getElementById("content料金");
+        const arrow = document.getElementById("arrow料金");
+        const isOpening = !content.classList.contains("show");
+        content.classList.toggle("show");
+        arrow.classList.toggle("rotate");
+        if (isOpening) { setTimeout(() => {
+          content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300);
+                       }
+}
+    </script>
+    <script>
+      const slider = document.querySelector('.slider');
+      const prev = document.querySelector('.slide-arrow.left');
+      const next = document.querySelector('.slide-arrow.right');
+      function getSlideWidth() { return slider.clientWidth; } function updateArrows()
+      {
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        // 左端 if (slider.scrollLeft <= 5) { prev.style.opacity = 0; prev.style.pointerEvents = 'none'; } else { prev.style.opacity = 1; prev.style.pointerEvents = 'auto'; } // 右端 if (slider.scrollLeft >= maxScroll - 5) { next.style.opacity = 0; next.style.pointerEvents = 'none'; } else { next.style.opacity = 1; next.style.pointerEvents = 'auto'; } } prev.addEventListener('click', () => { slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' }); }); next.addEventListener('click', () => { slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' }); }); slider.addEventListener('scroll', updateArrows); window.addEventListener('load', updateArrows);
+    </script>
+    <footer>
+      <p>© 2025 合同会社ノワール</p>
+      <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p>
+    </footer>
+    <section id="contact-section" class="contact-form">
+      <h2>お問い合わせ</h2>
+      <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
+        <label for="name">お名前:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">メールアドレス:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">お問い合わせ内容:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <button type="submit">送信</button>
+        <input type="hidden" name="_subject" value="ノワールからのお問い合わせ">
+        <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html">
+        <input type="hidden" name="_captcha" value="false">
+      </form>
+    </section>
+    <script>
+      document.getElementById('contact-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        const form = document.getElementById('contact-section');
+        // まずフォームを表示する form.classList.add('show');
+        // 表示状態になってから少し待ってスクロールする（0.1秒後くらい） setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100); });
+    </script>
+  </body>
+</html>
+        
 
 
 
