@@ -434,12 +434,12 @@
 @media (max-width: 480px) {
   .content流れ img,
   .content料金 img {
-    width: 110%;          /* ← もっと大きく */
+    width: 115%;          /* ← もっと大きく */
     max-width: none;
-    margin-left: -5%;     /* ← 中央に見せるため */
-    
-    border: none;         /* ← 枠線を消す */
-    border-radius: 10px;  /* ← 角の丸みを少なめに */
+    margin-left: -7.5%;   /* ← 中央寄せ */
+
+    border: none;         /* ← 枠線なし */
+    border-radius: 8px;   /* ← 角ほぼ四角 */
   }
 }
 .content流れ.show, .content料金.show {
@@ -684,7 +684,7 @@
     </button>
 
   <div id="content流れ" class="content流れ">
-    <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ" style="width:80%; height:auto;">
+    <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ">
   </div>
 </div>
 
@@ -695,7 +695,7 @@
     </button>
 
   <div id="content料金" class="content料金">
-    <img src="料金.jpg" alt="ご利用料金" style="width: 80%; height: auto;">
+    <img src="料金.jpg" alt="ご利用料金">
   </div>
 </div>
 
@@ -786,6 +786,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
