@@ -123,7 +123,8 @@
 }
     
 .slider {
- display: flex;
+  display: flex;
+  justify-content: center;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -138,10 +139,10 @@
 
 .slider img {
   flex-shrink: 0;
-  width: 80%;        /* ← ここを変更 */
-  max-width: 520px; /* ← 少し大きく */
+  width: 100%;
+  max-width: 520px;
   height: auto;
-  margin: 0 24px;
+  margin: 0 auto;
   scroll-snap-align: center;
   border-radius: 0;
   box-shadow: none;
@@ -690,106 +691,51 @@ function toggleContent流れ() {
 </script>
 
 <script>
-function toggleContent料金() {
-  const content = document.getElementById("content料金");
-  const arrow = document.getElementById("arrow料金");
-
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-}
-</script>
-
-
-<footer>
-  <p><span class="small-text">© 2025 合同会社ノワール</span></p>
-  <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p>
-</footer>
-
-<section id="contact-section" class="contact-form">
-  <h2>お問い合わせ</h2>
-  <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
-    <label for="name">お名前:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="email">メールアドレス:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="message">お問い合わせ内容:</label><br>
-    <textarea id="message" name="message" rows="5" required></textarea><br><br>
-
-    <button type="submit">送信</button>
-
-    <input type="hidden" name="_subject" value="ノワールホームページからのお問い合わせ">
-    <input type="hidden" name="_next" value="https://noir-gilt.vercel.app/thanks.html">
-    <input type="hidden" name="_captcha" value="false">
-  </form>
-</section>
-
-<script>
-  document.getElementById('contact-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    const form = document.getElementById('contact-section');
-    // まずフォームを表示する
-    form.classList.add('show');
-    // 表示状態になってから少し待ってスクロールする（0.1秒後くらい）
-    setTimeout(() => {
-      form.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  });
-</script>
-
-<script>
 const slider = document.querySelector('.slider');
 const prev = document.querySelector('.slide-arrow.left');
 const next = document.querySelector('.slide-arrow.right');
 
 function getSlideWidth() {
-  const img = slider.querySelector('img');
-  const style = getComputedStyle(img);
-  return img.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+  return slider.clientWidth;
 }
 
 function updateArrows() {
   const maxScroll = slider.scrollWidth - slider.clientWidth;
 
-  // 一番左なら左矢印を消す
+  // 左端
   if (slider.scrollLeft <= 5) {
-    prev.style.display = 'none';
+    prev.style.opacity = 0;
+    prev.style.pointerEvents = 'none';
   } else {
-    prev.style.display = 'block';
+    prev.style.opacity = 1;
+    prev.style.pointerEvents = 'auto';
   }
 
-  // 一番右なら右矢印を消す
+  // 右端
   if (slider.scrollLeft >= maxScroll - 5) {
-    next.style.display = 'none';
+    next.style.opacity = 0;
+    next.style.pointerEvents = 'none';
   } else {
-    next.style.display = 'block';
+    next.style.opacity = 1;
+    next.style.pointerEvents = 'auto';
   }
 }
 
 prev.addEventListener('click', () => {
-  slider.scrollBy({
-    left: -getSlideWidth(),
-    behavior: 'smooth'
-  });
+  slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
 });
 
 next.addEventListener('click', () => {
-  slider.scrollBy({
-    left: getSlideWidth(),
-    behavior: 'smooth'
-  });
+  slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
 });
 
-// スクロール時にも判定
 slider.addEventListener('scroll', updateArrows);
-
-// 初期表示時にも判定
-updateArrows();
+window.addEventListener('load', updateArrows);
 </script>
   
 </body>
 </html>
+
 
 
 
