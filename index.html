@@ -511,6 +511,7 @@
     </div>
     
     <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
+    
     <section class="slider-section">
       <button class="slide-arrow left" aria-label="前へ">‹</button>
       <div class="slider">
@@ -519,23 +520,30 @@
         <img src="okojo.png" alt="教材や環境"> </div>
       <button class="slide-arrow right" aria-label="次へ">›</button>
     </section>
+    
     <div class="box-container">
       <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div>
       <div class="box"> 体を動かすのが<span class="mobile-br"><br></span>苦手 </div>
       <div class="box"> 勉強について<span class="mobile-br"><br></span>いけない </div>
       <div class="box">集中力がない</div> <div class="box">落ち着きがない</div>
       <div class="box"> 他者との<span class="mobile-br"><br></span>かかわりが苦手 </div>
-    </div> <div class="circle-container">
+    </div>
+    
+    <div class="circle-container">
       <div class="circle">保育士</div>
       <div class="circle">言語<br>聴覚士</div>
       <div class="circle">理学<br>療法士</div>
       <div class="circle">作業<br>療法士</div>
       <div class="circle">公認<br>心理士</div>
-    </div> <section class="intro">
+    </div>
+    
+    <section class="intro">
       <p>多様な専門職が在籍。経験豊富なスタッフが、<br>お子様の特性に合わせた最適な対応を致します！</p>
     </section> <section class="intro2">
+      
       <p>生活面での不安や集団活動での悩み、<br>コミュニケーションや感覚面のサポートも行っています。</p>
     </section>
+    
     <div class="toggle-container流れ">
       <button class="toggle-button流れ" onclick="toggleContent流れ()"> ご利用開始までの流れ
         <span id="arrow流れ">∨</span>
@@ -544,6 +552,7 @@
         <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ">
       </div>
     </div>
+    
     <div class="toggle-container料金">
       <button class="toggle-button料金" onclick="toggleContent料金()"> ご利用料金
         <span id="arrow料金">∨</span>
@@ -552,18 +561,21 @@
         <img src="料金.jpg" alt="ご利用料金">
       </div>
     </div>
+    
     <script>
       function toggleContent流れ() {
         const content = document.getElementById("content流れ");
         const arrow = document.getElementById("arrow流れ");
         const isOpening = !content.classList.contains("show");
         content.classList.toggle("show");
-        arrow.classList.toggle("rotate"); if (isOpening) {
+        arrow.classList.toggle("rotate");
+        if (isOpening) {
           setTimeout(() => {
-            content.scrollIntoView({behavior: "smooth", block: "center" }); }, 300);
-          // ふわっと開き始めてからスクロール } }
+            content.scrollIntoView({behavior: "smooth", block: "center" }); }, 300);// ふわっと開き始めてからスクロール } }
         </script>
-    <script> function toggleContent料金() {
+    
+    <script>
+      function toggleContent料金() {
         const content = document.getElementById("content料金");
         const arrow = document.getElementById("arrow料金");
         const isOpening = !content.classList.contains("show");
@@ -583,10 +595,12 @@
         const maxScroll = slider.scrollWidth - slider.clientWidth;
         // 左端 if (slider.scrollLeft <= 5) { prev.style.opacity = 0; prev.style.pointerEvents = 'none'; } else { prev.style.opacity = 1; prev.style.pointerEvents = 'auto'; } // 右端 if (slider.scrollLeft >= maxScroll - 5) { next.style.opacity = 0; next.style.pointerEvents = 'none'; } else { next.style.opacity = 1; next.style.pointerEvents = 'auto'; } } prev.addEventListener('click', () => { slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' }); }); next.addEventListener('click', () => { slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' }); }); slider.addEventListener('scroll', updateArrows); window.addEventListener('load', updateArrows);
     </script>
+    
     <footer>
       <p>© 2025 合同会社ノワール</p>
       <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p>
     </footer>
+    
     <section id="contact-section" class="contact-form">
       <h2>お問い合わせ</h2>
       <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
@@ -602,6 +616,7 @@
         <input type="hidden" name="_captcha" value="false">
       </form>
     </section>
+    
     <script>
       document.getElementById('contact-link').addEventListener('click', function(event) {
         event.preventDefault();
@@ -612,6 +627,7 @@
   </body>
 </html>
         
+
 
 
 
