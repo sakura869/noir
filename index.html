@@ -741,7 +741,7 @@ function toggleContent料金() {
   });
 </script>
 
-  <script>
+<script>
 const slider = document.querySelector('.slider');
 const prev = document.querySelector('.slide-arrow.left');
 const next = document.querySelector('.slide-arrow.right');
@@ -750,6 +750,24 @@ function getSlideWidth() {
   const img = slider.querySelector('img');
   const style = getComputedStyle(img);
   return img.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+}
+
+function updateArrows() {
+  const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+  // 一番左なら左矢印を消す
+  if (slider.scrollLeft <= 5) {
+    prev.style.display = 'none';
+  } else {
+    prev.style.display = 'block';
+  }
+
+  // 一番右なら右矢印を消す
+  if (slider.scrollLeft >= maxScroll - 5) {
+    next.style.display = 'none';
+  } else {
+    next.style.display = 'block';
+  }
 }
 
 prev.addEventListener('click', () => {
@@ -765,10 +783,17 @@ next.addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+// スクロール時にも判定
+slider.addEventListener('scroll', updateArrows);
+
+// 初期表示時にも判定
+updateArrows();
 </script>
   
 </body>
 </html>
+
 
 
 
