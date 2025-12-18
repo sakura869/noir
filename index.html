@@ -77,26 +77,35 @@
     
  /* 横スライダー */
 .slider-section {
-  max-width: 900px;
+  max-width: 760px;   /* ← 900px → 760px */
   margin: 25px auto;
-  background: rgba(255,255,255,0.9); /* ← 白感アップ */
+  background: rgba(255,255,255,0.9);
   border-radius: 30px;
-  padding: 10px 0; /* ← 縦余白を減らす */
+  padding: 10px 0;
   position: relative;
 }
 /* 矢印ボタン */
 .slide-arrow {
+  .slide-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
   border: none;
-  font-size: 40px;
-  color: #9F987D;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
+
+  display: flex;               /* ← 追加 */
+  align-items: center;         /* ← 縦中央 */
+  justify-content: center;     /* ← 横中央 */
+
+  font-size: 36px;             /* ← 少し小さく */
+  line-height: 1;              /* ← 超重要 */
+  padding: 0;                  /* ← ズレ防止 */
+
+  color: #9F987D;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 10;
@@ -735,6 +744,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
