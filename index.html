@@ -197,12 +197,7 @@
           font-size: 0.8em;
         }
       }
-      .box-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px; max-width: 810px;
-        margin: 40px auto;
-      }
+      
       .box-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -238,22 +233,34 @@
         display: none;
       }
       @media (max-width: 480px) {
-        .box-container {
-          width: 95%;
-          height: 80px;
-          font-size: 0.8em;
-          gap: 3px;
-          margin: 1px auto 15px auto;
-          z-index: 9999;
-          position: relative;
-        }
-        .mobile-br {
-          display: none;
-        }
-        .mobile-br {
-          display: inline;/* 狭い画面でだけ改行を表示 */
-        }
-      }
+  .box-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1列にする */
+    width: 95%; /* 画面幅にフィット */
+    margin: 10px auto; /* 上下マージン調整 */
+    gap: 10px; /* ボックス間の余白 */
+  }
+
+  .box {
+    height: auto; /* 自動で高さ調整 */
+    text-align: center;
+    padding: 10px; /* 内側の余白調整 */
+    font-size: 0.9em;
+  }
+
+  .box::before {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 0.8em;
+    margin-bottom: 5px; /* 上に少しずらす */
+    display: inline-block;
+  }
+
+  .mobile-br {
+    display: inline; /* 改行を有効化 */
+  }
+}
       .mobile-only {
         display: none;
       }
@@ -627,6 +634,7 @@
   </body>
 </html>
         
+
 
 
 
