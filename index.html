@@ -739,9 +739,36 @@ function toggleContent料金() {
     }, 100);
   });
 </script>
-   
+
+  <script>
+const slider = document.querySelector('.slider');
+const prev = document.querySelector('.slide-arrow.left');
+const next = document.querySelector('.slide-arrow.right');
+
+function getSlideWidth() {
+  const img = slider.querySelector('img');
+  const style = getComputedStyle(img);
+  return img.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+}
+
+prev.addEventListener('click', () => {
+  slider.scrollBy({
+    left: -getSlideWidth(),
+    behavior: 'smooth'
+  });
+});
+
+next.addEventListener('click', () => {
+  slider.scrollBy({
+    left: getSlideWidth(),
+    behavior: 'smooth'
+  });
+});
+</script>
+  
 </body>
 </html>
+
 
 
 
