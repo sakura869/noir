@@ -124,15 +124,16 @@
     
 .slider {
   display: flex;
-  justify-content: center;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
+  width: 100%;
+  max-width: 420px;     /* ← 画像と同じ幅 */
+  margin: 0 auto;       /* ← 完全中央 */
+  
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-
 .slider::-webkit-scrollbar {
   display: none;
 }
@@ -140,12 +141,11 @@
 .slider img {
   flex-shrink: 0;
   width: 100%;
-  max-width: 520px;
+  max-width: 420px;   /* ← ここを小さく */
   height: auto;
   margin: 0 auto;
   scroll-snap-align: center;
-  border-radius: 0;
-  box-shadow: none;
+  display: block;
 }
     
     .small-circle-container {
@@ -735,6 +735,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
