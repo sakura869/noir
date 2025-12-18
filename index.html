@@ -431,14 +431,19 @@
     transform 0.4s ease;
   text-align: center;
 }
-
+@media (max-width: 480px) {
+  .content流れ img,
+  .content料金 img {
+    width: 95%;
+  }
+}
 .content流れ.show, .content料金.show {
   max-height: 1000px;
   opacity: 1;
   transform: translateY(0);
 }
 
-     .content流れ img, .content料金 img {
+.content流れ img, .content料金 img {
         transform: scaleY(1);
         opacity: 1;
         display: block;
@@ -447,7 +452,7 @@
         border: 1px solid #ccc; /* ← 枠線を付ける */
         width: 80%;
         height: auto;
-     }
+}
 
      #arrow流れ, #arrow料金 {
         font-family: 'Kiwi Maru', cursive;
@@ -455,11 +460,11 @@
         display: inline-block;
         transform: scaleX(2);
         transition: transform 0.5s ease; /* 矢印回転アニメ追加 */
-     }
+　}
 
      #arrow流れ.rotate, #arrow料金.rotate {
         transform: scaleX(2) rotate(180deg); /* 矢印横伸ばし＆回転 */
-     }
+　}
 
  /* フォームを非表示にする */
      .contact-form {
@@ -776,6 +781,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
