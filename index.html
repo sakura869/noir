@@ -82,7 +82,44 @@
   background: rgba(255,255,255,0.9); /* ← 白感アップ */
   border-radius: 30px;
   padding: 10px 0; /* ← 縦余白を減らす */
+  position: relative;
 }
+/* 矢印ボタン */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 40px;
+  color: #9F987D;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* 左右位置 */
+.slide-arrow.left {
+  left: 10px;
+}
+.slide-arrow.right {
+  right: 10px;
+}
+
+/* ホバーしたら表示 */
+.slider-section:hover .slide-arrow {
+  opacity: 1;
+}
+
+/* スマホでは非表示 */
+@media (max-width: 480px) {
+  .slide-arrow {
+    display: none;
+  }
 
 .slider {
   display: flex;
@@ -109,7 +146,7 @@
   scroll-snap-align: center;
   border-radius: 12px;   /* 角丸を弱く */
   box-shadow: none;      /* ← 枠感の原因を消す */
-}
+ }
 }
     
     .small-circle-container {
@@ -705,6 +742,7 @@ function toggleContent料金() {
    
 </body>
 </html>
+
 
 
 
