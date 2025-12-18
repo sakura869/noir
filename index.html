@@ -433,6 +433,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+    
 .content流れ img,
 .content料金 img {
   width: 80%;
@@ -440,7 +441,10 @@
   display: block;
   border-radius: 40px;
   border: 1px solid #ccc;
-@media (max-width: 480px) {
+  height: auto;
+}
+  
+ @media (max-width: 480px) {
   .content流れ img,
   .content料金 img {
     width: 115%;
@@ -449,22 +453,6 @@
     border: none;
     border-radius: 8px;
   }
-}
-.content流れ.show, .content料金.show {
-  max-height: 1000px;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.content流れ img, .content料金 img {
-        transform: scaleY(1);
-        opacity: 1;
-        display: block;
-        margin: 0 auto;
-        border-radius: 40px; /* ← 角を丸める */
-        border: 1px solid #ccc; /* ← 枠線を付ける */
-        width: 80%;
-        height: auto;
 }
 
      #arrow流れ, #arrow料金 {
@@ -794,6 +782,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
