@@ -522,7 +522,8 @@
       <div class="slider">
         <img src="uma.png" alt="活動の様子">
         <img src="tree.png" alt="室内の雰囲気">
-        <img src="okojo.png" alt="教材や環境"> </div>
+        <img src="okojo.png" alt="教材や環境">
+      </div>
       <button class="slide-arrow right" aria-label="次へ">›</button>
     </section>
     
@@ -590,16 +591,48 @@
           content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300);
                        }
 }
-    </script>
     <script>
-      const slider = document.querySelector('.slider');
-      const prev = document.querySelector('.slide-arrow.left');
-      const next = document.querySelector('.slide-arrow.right');
-      function getSlideWidth() { return slider.clientWidth; } function updateArrows()
-      {
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        // 左端 if (slider.scrollLeft <= 5) { prev.style.opacity = 0; prev.style.pointerEvents = 'none'; } else { prev.style.opacity = 1; prev.style.pointerEvents = 'auto'; } // 右端 if (slider.scrollLeft >= maxScroll - 5) { next.style.opacity = 0; next.style.pointerEvents = 'none'; } else { next.style.opacity = 1; next.style.pointerEvents = 'auto'; } } prev.addEventListener('click', () => { slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' }); }); next.addEventListener('click', () => { slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' }); }); slider.addEventListener('scroll', updateArrows); window.addEventListener('load', updateArrows);
-    </script>
+const slider = document.querySelector('.slider');
+const prev = document.querySelector('.slide-arrow.left');
+const next = document.querySelector('.slide-arrow.right');
+
+function getSlideWidth() {
+  return slider.clientWidth;
+}
+
+function updateArrows() {
+  const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+  // 左端
+  if (slider.scrollLeft <= 5) {
+    prev.style.opacity = 0;
+    prev.style.pointerEvents = 'none';
+  } else {
+    prev.style.opacity = 1;
+    prev.style.pointerEvents = 'auto';
+  }
+
+  // 右端
+  if (slider.scrollLeft >= maxScroll - 5) {
+    next.style.opacity = 0;
+    next.style.pointerEvents = 'none';
+  } else {
+    next.style.opacity = 1;
+    next.style.pointerEvents = 'auto';
+  }
+}
+
+prev.addEventListener('click', () => {
+  slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+});
+
+next.addEventListener('click', () => {
+  slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+});
+
+slider.addEventListener('scroll', updateArrows);
+window.addEventListener('load', updateArrows);
+</script>
     
     <footer>
       <p>© 2025 合同会社ノワール</p>
@@ -632,6 +665,7 @@
   </body>
 </html>
         
+
 
 
 
