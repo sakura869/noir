@@ -689,9 +689,24 @@ function toggleContent料金() {
     }, 100);
   });
 </script>
+  
+<script>
+const slider = document.querySelector('.slider');
+let index = 0;
 
+setInterval(() => {
+  const slides = slider.querySelectorAll('img');
+  index = (index + 1) % slides.length;
+  slides[index].scrollIntoView({
+    behavior: 'smooth',
+    inline: 'center'
+  });
+}, 4000); // 4秒ごと
+</script>
+  
 </body>
 </html>
+
 
 
 
