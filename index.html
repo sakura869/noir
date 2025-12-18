@@ -1,224 +1,398 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="新潟市にある発達支援ノワールは、放課後等デイサービス・児童発達支援を行っています。専門職が連携し、お子様に合わせた支援を提供します。">
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
-  <title>発達支援ノワール - 新潟市の放課後等デイサービス・児童発達支援</title>
-  <style>
-    body { font-family: 'M PLUS Rounded 1c', "Helvetica Neue", sans-serif; background-color: #FFFFFF; color: #9F987D; margin: 0; padding: 0; position: relative; }
-    html { scroll-behavior: smooth; }
-    .background-image { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("がぞー.png"); background-size: cover; background-position: center; z-index: -1; opacity: 0.7; }
-    header { background-color: rgba(169, 169, 169, 0.5); color: #fff; text-align: center; padding: 40px 20px; margin: 0; position: relative; z-index: 1; }
-    header h1 { font-family: 'Kiwi Maru', cursive; font-size: 1.5em; margin: 0; letter-spacing: 2px; color: #fff; }
-    header p { font-family: 'Kiwi Maru', cursive; font-size: 2em; margin-top: 20px; color: #fff; }
-    @media (max-width: 480px) { header { font-size: 1em; padding: 10px; } header h1 { margin-top: 20px; } header p { font-size: 2em; margin-top: 20px; } }
-
-    /* 横スライダー */
-    .slider-section { max-width: 760px; margin: 25px auto; background: rgba(255,255,255,0.9); border-radius: 30px; padding: 10px 0; position: relative; }
-    .slide-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; padding: 0; font-family: 'Kiwi Maru', cursive; font-size: 36px; color: #9F987D; cursor: pointer; opacity: 0; transition: opacity 0.3s ease, transform 0.2s ease; z-index: 10; }
-    .slide-arrow.left { left: 12px; }
-    .slide-arrow.right { right: 12px; }
-    .slider-section:hover .slide-arrow { opacity: 1; }
-    .slide-arrow:hover { transform: translateY(-50%) scale(1.15); color: #7E7761; }
-    @media (max-width: 480px) { .slide-arrow { display: none; } }
-    .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; width: 100%; max-width: 420px; margin: 0 auto; scrollbar-width: none; }
-    .slider::-webkit-scrollbar { display: none; }
-    .slider img { flex-shrink: 0; width: 100%; max-width: 420px; height: auto; margin: 0 auto; scroll-snap-align: center; display: block; }
-
-    .small-circle-container { display: flex; gap: 20.5px; justify-content: center; margin: 20px 0; margin-left: -71.5px; }
-    .small-circle { top: 10px; width: 4.5px; height: 4.5px; border-radius: 50%; background-color: #9F987D; position: relative; z-index: 10; }
-    @media (max-width: 480px) { .small-circle-container { gap: 28px; margin-left: -62px; } .small-circle { width: 3px; height: 3px; } }
-
-    .overlay-text { position: relative; z-index: 1; text-align: center; font-size: 1em; font-weight: bold; letter-spacing: 1px; margin: 10px auto; padding: 0; background-color: rgba(255,255,255,0.7); border-radius: 20px; max-width: 450px; }
-    @media (max-width: 480px) { .overlay-text { font-size: 0.8em; } }
-
-    /* ボックスコンテナ */
-    .box-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 810px; margin: 40px auto; }
-    .box { background-color: rgba(255,255,255,0.85); border-radius: 15px; padding: 15px; color: #555; font-weight: bold; text-align: left; box-shadow: 2px 2px 6px rgba(0,0,0,0.2); font-size: 1em; position: relative; }
-    .box::before { content: "✓"; display: inline-block; background-color: rgba(169,169,169,0.9); color: white; border-radius: 50%; width: 30px; height: 30px; text-align: center; line-height: 30px; margin-right: 10px; font-size: 1.2em; }
-    .mobile-br { display: none; }
-    @media (max-width: 480px) {
-      .box-container { grid-template-columns: 1fr; width: 95%; margin: 10px auto; gap: 10px; }
-      .box { height: auto; text-align: center; padding: 10px 0; font-size: 0.9em; }
-      .box::before { width: 20px; height: 20px; line-height: 20px; font-size: 0.8em; margin-bottom: 5px; }
-      .mobile-br { display: inline; }
-    }
-
-    /* circle */
-    .circle-container { display: flex; justify-content: center; margin: 40px 0; }
-    .circle { width: 100px; height: 100px; border-radius: 50%; background-color: rgba(169,169,169,1); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2em; padding: 10px; margin-left: -20px; }
-    @media (max-width: 480px) { .circle { width: 50px; height: 50px; font-size: 0.8em; margin-left: -10px; } }
-
-    /* intro */
-    .intro, .intro2 { max-width: 630px; margin: 40px auto; padding: 20px; text-align: center; background-color: rgba(255,255,255,0.7); border-radius: 140px; color: #444; font-size: 1.4em; text-shadow: 0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #fff,0 0 50px #fff,0 0 60px #fff,0 0 70px #fff; }
-    @media (max-width: 480px) { .intro, .intro2 { max-width: 85%; margin: 30px auto; padding: 10px; font-size: 0.8em; } }
-
-    /* toggle */
-    .toggle-container流れ, .toggle-container料金 { display: flex; flex-direction: column; align-items: center; margin: 40px 0; }
-    .toggle-button流れ, .toggle-button料金 { cursor: pointer; font-size: 20px; font-family: 'Arial', sans-serif; padding: 10px 20px; background-color: rgba(255,255,255,0.6); border: 1px solid #ccc; border-radius: 10px; transition: background-color 0.3s ease; color: #9F987D; }
-    .toggle-button流れ:hover, .toggle-button料金:hover { background-color: #ddd; }
-    .content流れ, .content料金 { display: none; opacity: 0; transform: translateY(-8px); transition: opacity 0.3s ease, transform 0.3s ease; text-align: center; }
-    .content流れ.show, .content料金.show { display: block; opacity: 1; transform: translateY(0); }
-    .content流れ img, .content料金 img { width: 80%; margin: 0 auto; display: block; border-radius: 40px; border: 1px solid #ccc; height: auto; }
-    @media (max-width: 480px) { .content流れ img, .content料金 img { width: 100%; max-width: none; margin-left: 0; border: none; border-radius: 8px; } }
-    #arrow流れ, #arrow料金 { font-family: 'Kiwi Maru', cursive; font-size: 0.7em; display: inline-block; transform: scaleX(2); transition: transform 0.5s ease; }
-    #arrow流れ.rotate, #arrow料金.rotate { transform: scaleX(2) rotate(180deg); }
-
-    /* contact */
-    .contact-form { display: none; background-color: rgba(255,255,255,0.8); padding: 20px; max-width: 600px; margin: 40px auto; border-radius: 15px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); text-align: left; }
-    .contact-form.show { display: block; }
-    .contact-form h2 { text-align: center; color: #9F987D; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; }
-    .contact-form button { background-color: #9F987D; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
-    .contact-form button:hover { background-color: #7E7761; }
-    @media (max-width: 480px) { .contact-form { padding: 17px 27px 37px 27px; } }
-
-    /* footer */
-    footer { background-color: rgba(255, 255, 255, 0.5); color: #9F987D; text-align: center; padding: 20px 20px; margin: 0; position: relative; width: 100%; box-sizing: border-box; font-family: 'Kiwi Maru', cursive; font-size: 1.1em; letter-spacing: 2px; z-index: 1; user-select: none; }
-    footer a { color: #9F987D; text-decoration: none; margin: 0 10px; font-size: 1.1em; }
-    footer a:hover { text-decoration: underline; }
-    .small-text { font-size: 0.7em; }
-  </style>
-</head>
-<body>
-
-<div class="background-image"></div>
-
-<header>
-  <h1>発達支援ノワール</h1>
-  <p>放課後等デイサービス<br>児童発達支援</p>
-</header>
-
-<div class="small-circle-container">
-  <div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div>
-</div>
-
-<div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
-  
-<section class="slider-section">
-  <button class="slide-arrow left" aria-label="前へ">‹</button>
-  <div class="slider">
-    <img src="uma.png" alt="活動の様子">
-    <img src="tree.png" alt="室内の雰囲気">
-    <img src="okojo.png" alt="教材や環境">
-  </div>
-  <button class="slide-arrow right" aria-label="次へ">›</button>
-</section>
-  
-<div class="box-container">
-  <div class="box">言葉の遅れが<span class="mobile-br"><br></span>気になる</div>
-  <div class="box">体を動かすのが<span class="mobile-br"><br></span>苦手</div>
-  <div class="box">勉強について<span class="mobile-br"><br></span>いけない</div>
-  <div class="box">集中力がない</div>
-  <div class="box">落ち着きがない</div>
-  <div class="box">他者との<span class="mobile-br"><br></span>かかわりが苦手</div>
-</div>
-
-<div class="circle-container">
-  <div class="circle">保育士</div>
-  <div class="circle">言語<br>聴覚士</div>
-  <div class="circle">理学<br>療法士</div>
-  <div class="circle">作業<br>療法士</div>
-  <div class="circle">公認<br>心理士</div>
-</div>
-
-<section class="intro">
-  <p>多様な専門職が在籍。経験豊富なスタッフが、<br>お子様の特性に合わせた最適な対応を致します！</p>
-</section>
-
-<section class="intro2">
-  <p>生活面での不安や集団活動での悩み、<br>コミュニケーションや感覚面のサポートも行っています。</p>
-</section>
-
-<div class="toggle-container流れ">
-  <button class="toggle-button流れ" onclick="toggleContent流れ()">
-    ご利用開始までの流れ
-    <span id="arrow流れ">∨</span>
-  </button>
-  <div id="content流れ" class="content流れ">
-    <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ">
-  </div>
-</div>
-
-<div class="toggle-container料金">
-  <button class="toggle-button料金" onclick="toggleContent料金()">
-    ご利用料金
-    <span id="arrow料金">∨</span>
-  </button>
-  <div id="content料金" class="content料金">
-    <img src="料金.jpg" alt="ご利用料金">
-  </div>
-</div>
-
-<section id="contact-section" class="contact-form">
-  <h2>お問い合わせ</h2>
-  <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
-    <label for="name">お名前:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-    <label for="email">メールアドレス:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="message">お問い合わせ内容:</label><br>
-    <textarea id="message" name="message" rows="5" required></textarea><br><br>
-    <button type="submit">送信</button>
-    <input type="hidden" name="_subject" value="ノワールからのお問い合わせ">
-    <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html">
-    <input type="hidden" name="_captcha" value="false">
-  </form>
-</section>
-
-<footer>
-  <p>© 2025 合同会社ノワール</p>
-  <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p>
-</footer>
-
-<script>
-function toggleContent流れ() {
-  const content = document.getElementById("content流れ");
-  const arrow = document.getElementById("arrow流れ");
-  const isOpening = !content.classList.contains("show");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-  if(isOpening) setTimeout(()=>{ content.scrollIntoView({behavior:"smooth", block:"center"}); }, 300);
-}
-function toggleContent料金() {
-  const content = document.getElementById("content料金");
-  const arrow = document.getElementById("arrow料金");
-  const isOpening = !content.classList.contains("show");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-  if(isOpening) setTimeout(()=>{ content.scrollIntoView({behavior:"smooth", block:"center"}); }, 300);
-}
-
-// slider arrows
-const slider = document.querySelector('.slider');
-const prev = document.querySelector('.slide-arrow.left');
-const next = document.querySelector('.slide-arrow.right');
-function getSlideWidth(){ return slider.clientWidth; }
-function updateArrows(){
-  const maxScroll = slider.scrollWidth - slider.clientWidth;
-  prev.style.opacity = (slider.scrollLeft <= 5) ? 0 : 1;
-  prev.style.pointerEvents = (slider.scrollLeft <= 5) ? 'none' : 'auto';
-  next.style.opacity = (slider.scrollLeft >= maxScroll-5) ? 0 : 1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="新潟市にある発達支援ノワールは、放課後等デイサービス・児童発達支援を行っています。専門職が連携し、お子様に合わせた支援を提供します。">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <title>発達支援ノワール - 新潟市の放課後等デイサービス・児童発達支援</title>
+    <style>
+      body{
+        font-family: 'M PLUS Rounded 1c', "Helvetica Neue", sans-serif;
+        background-color: #FFFFFF;
+        color: #9F987D;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      html {
+        scroll-behavior: smooth;
+      } .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("がぞー.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1; opacity: 0.7;
+      }
+      header {
+        background-color: rgba(169, 169, 169, 0.5);
+        color: #fff;
+        text-align: center;
+        padding: 40px 20px;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      } 
+      header h1 {
+        font-family: 'Kiwi Maru', cursive; font-size: 1.5em;
+        margin: 0; letter-spacing: 2px; color: #fff;
+      } 
+      header p {
+        font-family: 'Kiwi Maru', cursive;
+        font-size: 2em; margin-top: 20px;
+        color: #fff;
+      } 
+      @media (max-width: 480px) {
+        header {
+          font-size: 1em;
+          padding: 10px;
+        }
+        header h1 {
+          margin-top: 20px;
+        }
+        header p {
+          font-family: 'Kiwi Maru', cursive;
+          font-size: 2em;
+          margin-top: 20px;
+          color: #fff;
+        }
+      }
+      /* 横スライダー */
+      .slider-section {
+        max-width: 760px;/* ← 900px → 760px */
+        margin: 25px auto;
+        background: rgba(255,255,255,0.9);
+        border-radius: 30px;
+        padding: 10px 0;
+        position: relative;
+      }
+      /* 矢印ボタン */
+      .slide-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: 'Kiwi Maru', cursive;/* ← やさしい字体 */
+        font-size: 36px;
+        color: #9F987D;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        z-index: 10;
+      }
+      /* 左右位置 */
+      .slide-arrow.left {
+        left: 12px;
+      }
+      .slide-arrow.right {
+        right: 12px;
+      }
+      /* 表示 */
+      .slider-section:hover
+      .slide-arrow {
+        opacity: 1;
+      }
+      /* ホバーでふわっと */
+      .slide-arrow:hover {
+        transform: translateY(-50%) scale(1.15);
+        color: #7E7761;
+      }
+      /* スマホでは非表示 */
+      @media (max-width: 480px) {
+        .slide-arrow {
+          display: none;
+        }
+      }
+      .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        width: 100%; max-width: 420px;/* ← 画像と同じ幅 */
+        margin: 0 auto;/* ← 完全中央 */
+        scrollbar-width: none;
+      }
+      .slider::-webkit-scrollbar {
+        display: none;
+      }
+      .slider img {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 420px;/* ← ここを小さく */
+        height: auto;
+        margin: 0 auto;
+        scroll-snap-align: center;
+        display: block;
+      }
+      .small-circle-container {
+        display: flex;
+        gap: 20.5px;
+        justify-content: center;
+        margin: 20px 0;
+        margin-left: -71.5px;
+      }
+      .small-circle {
+        top: 10px;
+        width: 4.5px;
+        height: 4.5px;
+        border-radius: 50%;
+        background-color: #9F987D;
+        position: relative;
+        z-index: 10;
+      }
+      @media (max-width: 480px) {
+        .small-circle-container {
+          display: flex;
+          gap: 28px;
+          justify-content: center;
+          align-items: center;
+          margin: 1px 0 5px 0;
+          margin-left: -62px;
+        }
+        .small-circle {
+          width: 3px;
+          height: 3px;
+        }
+      }
+      .overlay-text {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 10px auto;
+        padding: 0;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 20px;
+        max-width: 450px;
+        text-shadow: 0 0 10px #fff,
+          　　　　　　0 0 20px #fff,
+          　　　　　　0 0 30px #fff,
+          　　　　　　0 0 40px #fff,
+          　　　　　　0 0 50px #fff,
+          　　　　　　0 0 60px #fff,
+          　　　　　　0 0 70px #fff;
+        box-shadow: 20px 0 30px rgba(255, 255, 255, 0.6),
+          　　　　　 30px 0 50px rgba(255, 255, 255, 0.5),
+                    40px 0 60px rgba(255, 255, 255, 0.2),
+                    -20px 0 30px rgba(255, 255, 255, 0.6),
+                    -30px 0 50px rgba(255, 255, 255, 0.5),
+                    -40px 0 60px rgba(255, 255, 255, 0.2),
+                    0 0 20px rgba(255, 255, 255, 0.1),
+                    0 0 30px rgba(255, 255, 255, 0.1),
+                    0 0 40px rgba(255, 255, 255, 0.1),
+                    0 0 50px rgba(255, 255, 255, 0.1);
+        border: none;
+      }
+      @media (max-width: 480px) {
+        .overlay-text {
+          font-size: 0.8em;
+        }
+      }
+      .box-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; max-width: 810px;
+        margin: 40px auto;
+      }
+      .box-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 810px;
+        margin: 40px auto;
+      }
+      .box {
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+        padding: 15px;
+        color: #555;
+        font-weight: bold;
+        text-align: left;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        font-size: 1em;
+        position: relative;
+      }
+      .box::before {
+        content: "✓";
+        display: inline-block;
+        background-color: rgba(169,169,169,0.9);
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        margin-right: 10px;
+        font-size: 1.2em;
+      }
+      .mobile-br {
+        display: none;
+      }
+      @media (max-width: 480px) {
+        .box-container {
+          width: 95%;
+          height: 80px;
+          font-size: 0.8em;
+          gap: 3px;
+          margin: 1px auto 15px auto;
+          z-index: 9999;
+          position: relative;
+        }
+        .mobile-br {
+          display: none;
+        }
+        .mobile-br {
+          display: inline;/* 狭い画面でだけ改行を表示 */
+        }
+      }
+      .mobile-only {
+        display: none;
+      }
+      .pc-only {
+        display: inline;
+      }
+      .circle-container {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgba(169,169,169,1);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 4px 4px 0px #696969;
+        margin-left: -20px;
+        position: relative;
+      }
+      @media (max-width: 480px) {
+        .circle-container {
+          display: flex;
+          justify-content: center;
+          padding: 0; line-height: 1.2;
+          margin: 25px auto 10px auto;
+        }
+        .circle {
+          width: 50px;
+          height: 50px;
+          font-size: 0.8em;
+          margin-left: -10px;
+        }
+      }
+      .intro, .intro2 {
+        max-width: 630px;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 140px;
+        color: #444;
+        font-size: 1.4em;
+        text-shadow: 0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 30px #fff,
+                     0 0 40px #fff,
+                     0 0 50px #fff,
+                     0 0 60px #fff,
+                     0 0 70px #fff;
+      }
+      @media (max-width: 480px) {
+        .intro, .intro2 {
+          max-width: 85%;
+          margin: 30px auto;
+          padding: 10px;
+          font-size: 0.8em;
+        }
+      }
+      .toggle-container流れ, .toggle-container料金 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 0;
+      }
+      .toggle-button流れ, .toggle-button料金 {
+        cursor: pointer;
+        font-size: 20px;
+        font-family: 'Arial', sans-serif;
+        padding: 10px 20px;
+        background-color: rgba(255,255,255,0.6);
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        color: #9F987D;
+      }
+      .toggle-button流れ:hover, .toggle-button料金:hover {
+        background-color: #ddd;
+      }
+      /* コンテンツのふわっと表示（自然） */
+      .content流れ, .content料金 {
+        display: none;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        text-align: center;
+      }
+      .content流れ.show, .content料金.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .content流れ img, .content料金 img {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 40px;
+        border: 1px solid #ccc;
+        height: auto;
+      }
+      @media (max-width: 480px) {
+        .content流れ img, .content料金 img {
+          width: 100%;
+          max-width: none;
+          margin-left: -0.0%;
+          border: none;
+          border-radius: 8px;
+        }
+      }
+      #arrow流れ, #arrow料金 {
+        font-family: 'Kiwi Maru', cursive;
+        font-size: 0.7em;
+        display: inline-block;
+        transform: scaleX(2);
+        transition: transform 0.5s ease;
+        /* 矢印回転アニメ追加 */
+      }
+      #arrow流れ.rotate, #arrow料金.rotate {
+        transform: scaleX(2) rotate(180deg);
+        /* 矢印横伸ばし＆回転 */
+      } /* フォームを非表示にする */
+      .contact-form {
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        max-width: 600px;
+        margin: 40px auto;
+        border-radius: 15px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        text-align: left;
+      }
+      .contact-form.show { display: block; } .contact-form h2 { text-align: center; color: #9F987D; } .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; } .contact-form button { background-color: #9F987D; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; } .contact-form button:hover { background-color: #7E7761; } @media (max-width: 480px) { .contact-form { background-color: rgba(255, 255, 255, 0.8); padding: 17px 27px 37px 27px; max-width: 600px; margin: 40px auto; border-radius: 15px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); text-align: left; } .contact-form h2 { text-align: center; color: #9F987D; } .contact-form input, .contact-form textarea { width: 100%; padding: 10px 0; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; } .contact-form button { background-color: #9F987D; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: block; margin: 20px auto 0 auto; } .contact-form button:hover { background-color: #7E7761; } form { padding: 10px; } input, textarea { font-size: 1em; } button { font-size: 1em; padding: 10px 20px; } } footer { background-color: rgba(255, 255, 255, 0.5); color: #9F987D; text-align: center; padding: 20px 20px; margin: 0; position: relative; width: 100%; box-sizing: border-box; font-family: 'Kiwi Maru', cursive; font-size: 1.1em; letter-spacing: 2px; z-index: 1; user-select: none; } footer a { color: #9F987D; text-decoration: none; margin: 0 10px; font-size: 1.1em; } footer a:hover { text-decoration: underline; } .small-text { font-size: 0.7em; } @media (max-width: 480px) { footer a { font-size: 1.1em; } } </style> </head> <body> <div class="background-image"></div> <header> <h1>発達支援ノワール</h1> <p>放課後等デイサービス<br>児童発達支援</p> </header> <div class="small-circle-container"> <div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div><div class="small-circle"></div> </div> <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div> <section class="slider-section"> <button class="slide-arrow left" aria-label="前へ">‹</button> <div class="slider"> <img src="uma.png" alt="活動の様子"> <img src="tree.png" alt="室内の雰囲気"> <img src="okojo.png" alt="教材や環境"> </div> <button class="slide-arrow right" aria-label="次へ">›</button> </section> <div class="box-container"> <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div> <div class="box"> 体を動かすのが<span class="mobile-br"><br></span>苦手 </div> <div class="box"> 勉強について<span class="mobile-br"><br></span>いけない </div> <div class="box">集中力がない</div> <div class="box">落ち着きがない</div> <div class="box"> 他者との<span class="mobile-br"><br></span>かかわりが苦手 </div> </div> <div class="circle-container"> <div class="circle">保育士</div> <div class="circle">言語<br>聴覚士</div> <div class="circle">理学<br>療法士</div> <div class="circle">作業<br>療法士</div> <div class="circle">公認<br>心理士</div> </div> <section class="intro"> <p>多様な専門職が在籍。経験豊富なスタッフが、<br>お子様の特性に合わせた最適な対応を致します！</p> </section> <section class="intro2"> <p>生活面での不安や集団活動での悩み、<br>コミュニケーションや感覚面のサポートも行っています。</p> </section> <div class="toggle-container流れ"> <button class="toggle-button流れ" onclick="toggleContent流れ()"> ご利用開始までの流れ <span id="arrow流れ">∨</span> </button> <div id="content流れ" class="content流れ"> <img src="ご利用の流れ.jpg" alt="ご利用開始までの流れ"> </div> </div> <div class="toggle-container料金"> <button class="toggle-button料金" onclick="toggleContent料金()"> ご利用料金 <span id="arrow料金">∨</span> </button> <div id="content料金" class="content料金"> <img src="料金.jpg" alt="ご利用料金"> </div> </div> <script> function toggleContent流れ() { const content = document.getElementById("content流れ"); const arrow = document.getElementById("arrow流れ"); const isOpening = !content.classList.contains("show"); content.classList.toggle("show"); arrow.classList.toggle("rotate"); if (isOpening) { setTimeout(() => { content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300); // ふわっと開き始めてからスクロール } } </script> <script> function toggleContent料金() { const content = document.getElementById("content料金"); const arrow = document.getElementById("arrow料金"); const isOpening = !content.classList.contains("show"); content.classList.toggle("show"); arrow.classList.toggle("rotate"); if (isOpening) { setTimeout(() => { content.scrollIntoView({ behavior: "smooth", block: "center" }); }, 300); } } </script> <script> const slider = document.querySelector('.slider'); const prev = document.querySelector('.slide-arrow.left'); const next = document.querySelector('.slide-arrow.right'); function getSlideWidth() { return slider.clientWidth; } function updateArrows() { const maxScroll = slider.scrollWidth - slider.clientWidth; // 左端 if (slider.scrollLeft <= 5) { prev.style.opacity = 0; prev.style.pointerEvents = 'none'; } else { prev.style.opacity = 1; prev.style.pointerEvents = 'auto'; } // 右端 if (slider.scrollLeft >= maxScroll - 5) { next.style.opacity = 0; next.style.pointerEvents = 'none'; } else { next.style.opacity = 1; next.style.pointerEvents = 'auto'; } } prev.addEventListener('click', () => { slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' }); }); next.addEventListener('click', () => { slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' }); }); slider.addEventListener('scroll', updateArrows); window.addEventListener('load', updateArrows); </script> <footer> <p>© 2025 合同会社ノワール</p> <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p> </footer> <section id="contact-section" class="contact-form"> <h2>お問い合わせ</h2> <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post"> <label for="name">お名前:</label><br> <input type="text" id="name" name="name" required><br><br> <label for="email">メールアドレス:</label><br> <input type="email" id="email" name="email" required><br><br> <label for="message">お問い合わせ内容:</label><br> <textarea id="message" name="message" rows="5" required></textarea><br><br> <button type="submit">送信</button> <input type="hidden" name="_subject" value="ノワールからのお問い合わせ"> <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html"> <input type="hidden" name="_captcha" value="false"> </form> </section> <script> document.getElementById('contact-link').addEventListener('click', function(event) { event.preventDefault(); const form = document.getElementById('contact-section'); // まずフォームを表示する form.classList.add('show'); // 表示状態になってから少し待ってスクロールする（0.1秒後くらい） setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100); }); </script> </body> </html>
 
 
 
