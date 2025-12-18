@@ -434,8 +434,12 @@
 @media (max-width: 480px) {
   .content流れ img,
   .content料金 img {
-    width: 105%;
-    margin-left: -2.5%;
+    width: 110%;          /* ← もっと大きく */
+    max-width: none;
+    margin-left: -5%;     /* ← 中央に見せるため */
+    
+    border: none;         /* ← 枠線を消す */
+    border-radius: 10px;  /* ← 角の丸みを少なめに */
   }
 }
 .content流れ.show, .content料金.show {
@@ -782,6 +786,7 @@ window.addEventListener('load', updateArrows);
   
 </body>
 </html>
+
 
 
 
