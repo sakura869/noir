@@ -163,21 +163,33 @@
       }
       .overlay-text {
         position: relative;
-  z-index: 1;
-  text-align: center;
-  font-size: 1em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 10px auto;
-  padding: 20px 40px;
-  /* 単色からグラデーションに変更 */
-  background: radial-gradient(circle, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%);
-  border-radius: 50px;
-  text-shadow: 0 0 10px #fff,
-               0 0 20px #fff,
-               0 0 30px #fff;
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
-}
+        z-index: 1;
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        margin: 10px auto;
+        padding: 0;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 20px;
+        max-width: 400px;
+        text-shadow: 0 0 10px #fff,
+          　　　　　　0 0 20px #fff,
+          　　　　　　0 0 30px #fff,
+          　　　　　　0 0 40px #fff,
+          　　　　　　0 0 50px #fff,
+          　　　　　　0 0 60px #fff,
+          　　　　　　0 0 70px #fff;
+        box-shadow: 20px 0 30px rgba(255, 255, 255, 0.6),
+                    30px 0 50px rgba(255, 255, 255, 0.5),
+                    40px 0 60px rgba(255, 255, 255, 0.2),
+                    -20px 0 30px rgba(255, 255, 255, 0.6),
+                    -30px 0 50px rgba(255, 255, 255, 0.5),
+                    -40px 0 60px rgba(255, 255, 255, 0.2),
+                    0 0 20px rgba(255, 255, 255, 0.1),
+                    0 0 30px rgba(255, 255, 255, 0.1),
+                    0 0 40px rgba(255, 255, 255, 0.1),
+                    0 0 50px rgba(255, 255, 255, 0.1); border: none;
+      }
       @media (max-width: 480px) {
         .overlay-text {
           font-size: 0.8em;
@@ -620,6 +632,7 @@
   </body>
 </html>
         
+
 
 
 
