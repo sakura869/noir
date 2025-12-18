@@ -575,12 +575,6 @@
 </head>
 <body>
 
-<footer>
-  <p>お問い合わせ・SNS</p>
-  <p><a href="#contact">お問い合わせフォームへ</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
-  <p class="small-text">© 2025 発達支援ノワール</p>
-</footer>
-
 <div class="background-image"></div>
 
 <header>
@@ -745,9 +739,30 @@ next.addEventListener('click', () => {
 slider.addEventListener('scroll', updateArrows);
 window.addEventListener('load', updateArrows);
 </script>
+
+<footer> <p>© 2025 合同会社ノワール</p>
+  <p><a href="https://www.instagram.com/noir_niigata/" target="_blank">Instagram</a> | <a href="#contact-section" id="contact-link">お問い合わせ</a></p>
+</footer>
+<section id="contact-section" class="contact-form">
+  <h2>お問い合わせ</h2> <form action="https://formsubmit.co/noir.niigata@gmail.com" method="post">
+    <label for="name">お名前:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="email">メールアドレス:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="message">お問い合わせ内容:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+    <button type="submit">送信</button> <input type="hidden" name="_subject" value="ノワールからのお問い合わせ">
+    <input type="hidden" name="_next" value="https://あなたのホームページURL/thanks.html">
+    <input type="hidden" name="_captcha" value="false">
+  </form>
+</section>
+  <script> document.getElementById('contact-link').addEventListener('click', function(event)
+                                                                    { event.preventDefault(); const form = document.getElementById('contact-section'); // まずフォームを表示する form.classList.add('show'); // 表示状態になってから少し待ってスクロールする（0.1秒後くらい） setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100); });
+  </script>
   
 </body>
 </html>
+
 
 
 
