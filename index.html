@@ -99,15 +99,16 @@
 
 /* 画像をスリムに */
 .slider img {
-  flex-shrink: 0;
-  width: 80%;          /* ← 少し小さく */
-  max-width: 420px;    /* ← 縦圧縮に効く */
+ flex-shrink: 0;
+  width: 70%;
+  max-width: 360px;
   height: auto;
-  margin: 0 auto;
-  margin: 0 20px;   /* ← 画像と画像の間に空白 */
+
+  margin: 0 24px;
+
   scroll-snap-align: center;
-  border-radius: 20px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+  border-radius: 12px;   /* 角丸を弱く */
+  box-shadow: none;      /* ← 枠感の原因を消す */
 }
 }
     
@@ -700,6 +701,7 @@ function toggleContent料金() {
    
 </body>
 </html>
+
 
 
 
