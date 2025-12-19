@@ -80,18 +80,18 @@
         -webkit-mask-image: radial-gradient(
           ellipse at center,
           rgba(0,0,0,,) 50%
-          rgba(0,0,0,0) 100%
+          rgba(0,0,0,0) 80%
         );
         mask-image: radial-gradient(
           ellipse at center,
           rgba(0,0,0,1) 50%,
-          rgba(0,0,0,0) 100%
+          rgba(0,0,0,0) 80%
         );
       }
       @media (max-width: 480px) {
         .overlay-image {
           max-width: 400px;
-          margin: -100px auto;
+          margin: -200px auto;
         }
       }
       .slider-section {
@@ -145,6 +145,7 @@
 @media (max-width: 480px) {
   .slider-section {
     border-radius: 0px; /* 小さくすると見た目も締まる */
+    margin-bottom: 10px;
   }
   .slide-arrow {
     display: none;
@@ -646,6 +647,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
