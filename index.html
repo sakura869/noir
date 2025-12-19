@@ -75,45 +75,38 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+
+  background: none;      /* ← 丸を消す */
+  border: none;          /* ← 枠も消す */
+  box-shadow: none;      /* ← 影も消す */
+
+  font-size: 28px;       /* ← 少し大きめで可愛く */
+  color: #9F987D;
   cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;            /* ← ズレ防止 */
+  line-height: 1;        /* ← 中央ズレ防止 */
 
-  font-size: 36px;
-  line-height: 1;
-  padding: 0;
-
-  color: #9F987D;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease;
   z-index: 10;
 }
-      /* 左右位置 */
-     .slide-arrow.left {
-  left: 12px;
-}
 
-.slide-arrow.right {
-  right: 12px;
-}
-/* ホバーしたら表示 */
+/* 位置 */
+.slide-arrow.left { left: 8px; }
+.slide-arrow.right { right: 8px; }
+
+/* 表示 */
 .slider-section:hover .slide-arrow {
   opacity: 1;
-  pointer-events: auto;
 }
-/* ホバーでふわっと */
+
+/* ホバーでちょい動く */
 .slide-arrow:hover {
-  transform: translateY(-50%) scale(1.15);
+  transform: translateY(-50%) scale(1.2);
   color: #7E7761;
 }
+
 /* スマホでは非表示 */
 @media (max-width: 480px) {
   .slide-arrow {
@@ -545,7 +538,7 @@
     <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
     
     <section class="slider-section">
-  <button class="slide-arrow left" aria-label="前へ">‹</button>
+  <button class="slide-arrow left" aria-label="前へ">〈</button>
 
   <div class="slider">
     <img src="uma.png" alt="活動の様子">
@@ -553,7 +546,7 @@
     <img src="okojo.png" alt="教材や環境">
   </div>
 
-  <button class="slide-arrow right" aria-label="次へ">›</button>
+ <button class="slide-arrow right" aria-label="次へ">〉</button>
 </section>
     
     <div class="box-container">
@@ -679,6 +672,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
