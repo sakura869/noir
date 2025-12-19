@@ -247,9 +247,7 @@
         margin-right: 10px;
         font-size: 1.2em;
       }
-      .mobile-br {
-        display: none;
-      }
+      
       @media (max-width: 480px) {
   .box-container {
     display: grid;
@@ -264,6 +262,8 @@
     text-align: center;
     padding: 10px; /* 内側の余白調整 */
     font-size: 0.9em;
+    word-break: keep-all;   /* 日本語を自然に折り返す */
+    line-height: 1.4;
   }
 
   .box::before {
@@ -550,11 +550,12 @@
 </section>
     
     <div class="box-container">
-      <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div>
-      <div class="box"> 体を動かすのが<span class="mobile-br"><br></span>苦手 </div>
-      <div class="box"> 勉強について<span class="mobile-br"><br></span>いけない </div>
-      <div class="box">集中力がない</div> <div class="box">落ち着きがない</div>
-      <div class="box"> 他者との<span class="mobile-br"><br></span>かかわりが苦手 </div>
+      <div class="box">言葉の遅れが気になる</div>
+      <div class="box">体を動かすのが苦手</div>
+      <div class="box">勉強についていけない</div>
+      <div class="box">集中力がない</div>
+      <div class="box">落ち着きがない</div>
+      <div class="box">他者とのかかわりが苦手</div>
     </div>
     
     <div class="circle-container">
@@ -672,6 +673,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
