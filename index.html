@@ -18,7 +18,8 @@
       }
       html {
         scroll-behavior: smooth;
-      } .background-image {
+      }
+      .background-image {
         position: fixed;
         top: 0;
         left: 0;
@@ -63,63 +64,65 @@
         }
       }
       .overlay-image {
-  text-align: center;
-  margin: 3px auto;
-  max-width: 420px;
-}
+        text-align: center;
+        margin: 3px auto;
+        max-width: 420px;
+        line-height: 0;
+       }
+      .overlay-image img {
+        width: 100%;
+        height: auto;
+        opacity: 0.8;
+        display: block;   /* ← これ超重要 */
 
-.overlay-image img {
-  width: 100%;
-  height: auto;
-  opacity: 0.8;
-
-  /* 画像自体をフェード */
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,1) 90%,
-    rgba(0,0,0,0) 100%
-  );
-  mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,1) 90%,
-    rgba(0,0,0,0) 100%
-  );
-}
+        /* 画像自体をフェード */
+        -webkit-mask-image: radial-gradient(
+          ellipse at center,
+          rgba(0,0,0,1) 90%,
+          rgba(0,0,0,0) 100%
+        );
+        mask-image: radial-gradient(
+          ellipse at center,
+          rgba(0,0,0,1) 90%,
+          rgba(0,0,0,0) 100%
+        );
+      }
       @media (max-width: 480px) {
-  .overlay-image {
-    max-width: 300px;
-    margin: 10px auto 15px auto;
-  }
-}
-     .slider-section {
-  max-width: 760px;   /* スライターの背景の四角 */
-  margin: 25px auto;
-  background: rgba(255,255,255,0.9);
-  border-radius: 30px;
-  padding: 10px 0;
-  position: relative;
-}
+        .overlay-image {
+          max-width: 300px;
+          margin: 10px auto 15px auto;
+        }
+      }
+      .slider-section {
+        max-width: 760px;   /* スライターの背景の四角 */
+        margin: 25px auto;
+        margin-top: 6px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 30px;
+        padding: 10px 0;
+        position: relative;
+      }
      /* 矢印ボタン */
-    .slide-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+      .slide-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
 
-  background: none;      /* ← 丸を消す */
-  border: none;          /* ← 枠も消す */
-  box-shadow: none;      /* ← 影も消す */
+        background: none;      /* ← 丸を消す */
+        border: none;          /* ← 枠も消す */
+        box-shadow: none;      /* ← 影も消す */
 
-  font-size: 28px;       /* ← 少し大きめで可愛く */
-  color: #9F987D;
-  cursor: pointer;
+        font-size: 28px;       /* ← 少し大きめで可愛く */
+        color: #9F987D;
+        cursor: pointer;
 
-  padding: 0;            /* ← ズレ防止 */
-  line-height: 1;        /* ← 中央ズレ防止 */
+        padding: 0;            /* ← ズレ防止 */
+        line-height: 1;        /* ← 中央ズレ防止 */
 
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-  z-index: 10;
-}
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        z-index: 10;
+      }
 
 /* 位置 */
 .slide-arrow.left { left: 8px; }
@@ -638,6 +641,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
