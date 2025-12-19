@@ -72,21 +72,23 @@
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255,197,132,0.3);
-  background: rgba(255,255,255,0.6);
-  padding: 10px;
+
+  /* 画像自体をフェード */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 60%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 60%,
+    rgba(0,0,0,0) 100%
+  );
 }
       @media (max-width: 480px) {
   .overlay-image {
     max-width: 300px;
     margin: 10px auto 15px auto;
-  }
-
-  .overlay-image img {
-    border-radius: 14px;
-    box-shadow: 0 0 20px rgba(255,197,132,0.3);
-    background: rgba(255,255,255,0.6);
-    padding: 10px;
   }
 }
      .slider-section {
@@ -636,6 +638,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
