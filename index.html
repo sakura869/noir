@@ -72,43 +72,43 @@
         position: relative;
       }
       /* 矢印ボタン */
-      .slide-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        padding: 0;
-        font-family: 'Kiwi Maru', cursive;/* ← やさしい字体 */
-        font-size: 36px;
-        color: #9F987D;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.2s ease;
-        z-index: 10;
-      }
-      /* 左右位置 */
-      .slide-arrow.left {
-        left: 12px;
-      }
-      .slide-arrow.right {
-        right: 12px;
-      }
-      /* 表示 */
-      .slider-section:hover .slide-arrow {
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Kiwi Maru', cursive;
+  font-size: 50px;
+  color: #9F987D;
+  cursor: pointer;
+  opacity: 0; /* 初期は非表示 */
+  pointer-events: none; /* 非表示中はクリック不可 */
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+/* ホバーで表示 */
+.slider-section:hover .slide-arrow {
   opacity: 1;
   pointer-events: auto;
 }
-      /* ホバーでふわっと */
-      .slide-arrow:hover {
-        transform: translateY(-50%) scale(1.15);
-        color: #7E7761;
-      }
-      /* スマホでは非表示 */
-      @media (max-width: 480px) {
-        .slide-arrow {
-          display: none;
-        }
+
+/* ホバーでふわっと */
+.slide-arrow:hover {
+  transform: translateY(-50%) scale(1.15);
+  color: #7E7761;
+}
+
+/* 左右位置 */
+.slide-arrow.left { left: 12px; }
+.slide-arrow.right { right: 12px; }
+
+/* スマホでは非表示 */
+@media (max-width: 480px) {
+  .slide-arrow { display: none; }
+}
       }
       .slider {
         display: flex;
@@ -638,6 +638,7 @@
   </body>
 </html>
         
+
 
 
 
