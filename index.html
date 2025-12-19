@@ -76,7 +76,7 @@
   height: auto;
 
   -webkit-mask-image: radial-gradient(
-    ellipse 130% 80% at 50% 50%,
+    ellipse 130% 65% at 50% 50%,
     rgba(0,0,0,1) 65%,
     rgba(0,0,0,0.85) 75%,
     rgba(0,0,0,0.5) 88%,
@@ -84,7 +84,7 @@
   );
 
   mask-image: radial-gradient(
-    ellipse 130% 80% at 50% 50%,
+    ellipse 130% 65% at 50% 50%,
     rgba(0,0,0,1) 65%,
     rgba(0,0,0,0.85) 75%,
     rgba(0,0,0,0.5) 88%,
@@ -97,7 +97,16 @@
           margin: -175px auto;
           margin-bottom: 50px;
       }
-    }
+        .overlay-image img {
+    -webkit-mask-image: radial-gradient(
+      ellipse 150% 70% at 50% 50%,
+      rgba(0,0,0,1) 60%,
+      rgba(0,0,0,0.85) 72%,
+      rgba(0,0,0,0.5) 88%,
+      rgba(0,0,0,0) 100%
+    );
+  }
+}
     
       .slider-section {
         max-width: 760px;   /* スライターの背景の四角 */
@@ -652,6 +661,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
