@@ -623,6 +623,7 @@ function updateArrows() {
   }
 }
 
+// 矢印クリックでスクロール
 prev.addEventListener('click', () => {
   slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
 });
@@ -631,6 +632,7 @@ next.addEventListener('click', () => {
   slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
 });
 
+// スクロール時に矢印表示を更新
 slider.addEventListener('scroll', updateArrows);
 window.addEventListener('load', updateArrows);
 </script>
@@ -666,6 +668,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
