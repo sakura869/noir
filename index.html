@@ -62,75 +62,101 @@
           color: #fff;
         }
       }
-      /* 横スライダー */
-      .slider-section {
-        max-width: 760px;/* ← 900px → 760px */
-        margin: 25px auto;
-        background: rgba(255,255,255,0.9);
-        border-radius: 30px;
-        padding: 10px 0;
-        position: relative;
-      }
-      /* 矢印ボタン */
-.slide-arrow {
+     .slider-section {
+  max-width: 760px;   /* スライターの背景の四角 */
+  margin: 25px auto;
+  background: rgba(255,255,255,0.9);
+  border-radius: 30px;
+  padding: 10px 0;
+  position: relative;
+}
+     /* 矢印ボタン */
+    .slide-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  background: rgba(255,255,255,0.85);
   border: none;
-  padding: 0;
-  font-family: 'Kiwi Maru', cursive;
-  font-size: 50px;
-  color: #9F987D;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   cursor: pointer;
-  opacity: 0; /* 初期は非表示 */
-  pointer-events: none; /* 非表示中はクリック不可 */
-  transition: opacity 0.3s ease, transform 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 36px;
+  line-height: 1;
+  padding: 0;
+
+  color: #9F987D;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   z-index: 10;
 }
+      /* 左右位置 */
+     .slide-arrow.left {
+  left: 12px;
+}
 
-/* ホバーで表示 */
+.slide-arrow.right {
+  right: 12px;
+}
+/* ホバーしたら表示 */
 .slider-section:hover .slide-arrow {
   opacity: 1;
   pointer-events: auto;
 }
-
 /* ホバーでふわっと */
 .slide-arrow:hover {
   transform: translateY(-50%) scale(1.15);
   color: #7E7761;
 }
-
-/* 左右位置 */
-.slide-arrow.left { left: 12px; }
-.slide-arrow.right { right: 12px; }
-
 /* スマホでは非表示 */
 @media (max-width: 480px) {
-  .slide-arrow { display: none; }
+  .slide-arrow {
+    display: none;
+  }
 }
-      }
-      .slider {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        width: 100%; max-width: 420px;/* ← 画像と同じ幅 */
-        margin: 0 auto;/* ← 完全中央 */
-        scrollbar-width: none;
-      }
-      .slider::-webkit-scrollbar {
-        display: none;
-      }
-      .slider img {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 420px;/* ← ここを小さく */
-        height: auto;
-        margin: 0 auto;
-        scroll-snap-align: center;
-        display: block;
-      }
+
+      /* スライダー本体 */
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  width: 100%;
+  max-width: 420px;     /* ← 画像と同じ幅 */
+  margin: 0 auto;       /* ← 完全中央 */
+  
+  scrollbar-width: none;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* 1枚ずつ表示（PC） */
+.slider img {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
+  scroll-snap-align: center;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* スマホ */
+@media (max-width: 480px) {
+  .slider img {
+    width: 90%;
+    margin: 0 16px;
+  }
+}
+      
       .small-circle-container {
         display: flex;
         gap: 20.5px;
@@ -519,14 +545,16 @@
     <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
     
     <section class="slider-section">
-      <button class="slide-arrow left" aria-label="前へ">‹</button>
-      <div class="slider">
-        <img src="uma.png" alt="活動の様子">
-        <img src="tree.png" alt="室内の雰囲気">
-        <img src="okojo.png" alt="教材や環境">
-      </div>
-      <button class="slide-arrow right" aria-label="次へ">›</button>
-    </section>
+  <button class="slide-arrow left" aria-label="前へ">‹</button>
+
+  <div class="slider">
+    <img src="uma.png" alt="活動の様子">
+    <img src="tree.png" alt="室内の雰囲気">
+    <img src="okojo.png" alt="教材や環境">
+  </div>
+
+  <button class="slide-arrow right" aria-label="次へ">›</button>
+</section>
     
     <div class="box-container">
       <div class="box"> 言葉の遅れが<span class="mobile-br"><br></span>気になる </div>
@@ -599,34 +627,47 @@
   }
 
   // スライダー
-  const slider = document.querySelector('.slider');
-  const prev = document.querySelector('.slide-arrow.left');
-  const next = document.querySelector('.slide-arrow.right');
+const slider = document.querySelector('.slider');
+const prev = document.querySelector('.slide-arrow.left');
+const next = document.querySelector('.slide-arrow.right');
 
-  function getSlideWidth() {
-  const img = slider.querySelector('img');
-  return img ? img.clientWidth : slider.clientWidth;
+function getSlideWidth() {
+  return slider.clientWidth;
 }
 
-  function updateArrows() {
-    const maxScroll = slider.scrollWidth - slider.clientWidth;
-    prev.style.opacity = slider.scrollLeft <= 5 ? 0 : 1;
-    prev.style.pointerEvents = slider.scrollLeft <= 5 ? 'none' : 'auto';
-    next.style.opacity = slider.scrollLeft >= maxScroll - 5 ? 0 : 1;
-    next.style.pointerEvents = slider.scrollLeft >= maxScroll - 5 ? 'none' : 'auto';
+function updateArrows() {
+  const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+  // 左端
+  if (slider.scrollLeft <= 5) {
+    prev.style.opacity = 0;
+    prev.style.pointerEvents = 'none';
+  } else {
+    prev.style.opacity = 1;
+    prev.style.pointerEvents = 'auto';
   }
 
-  prev.addEventListener('click', () => {
-    slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
-  });
+  // 右端
+  if (slider.scrollLeft >= maxScroll - 5) {
+    next.style.opacity = 0;
+    next.style.pointerEvents = 'none';
+  } else {
+    next.style.opacity = 1;
+    next.style.pointerEvents = 'auto';
+  }
+}
 
-  next.addEventListener('click', () => {
-    slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
-  });
+prev.addEventListener('click', () => {
+  slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+});
 
-  slider.addEventListener('scroll', updateArrows);
-  window.addEventListener('load', updateArrows);
+next.addEventListener('click', () => {
+  slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+});
 
+slider.addEventListener('scroll', updateArrows);
+window.addEventListener('load', updateArrows);
+      
   // お問い合わせフォームスクロール
   document.getElementById('contact-link').addEventListener('click', function(event) {
     event.preventDefault();
@@ -638,6 +679,7 @@
   </body>
 </html>
         
+
 
 
 
