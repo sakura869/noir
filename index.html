@@ -144,9 +144,13 @@
 }
 /* スマホ */
 @media (max-width: 480px) {
+  .slider {
+    max-width: 300px;   /* ← 枠を小さく */
+  }
+
   .slider img {
-    width: 75%;
-    margin: 0 16px;
+    width: 100%;        /* ← 1枚＝100% */
+    margin: 0;
   }
 }
       
@@ -532,7 +536,9 @@
       <div class="small-circle"></div>
     </div>
     
-    <div class="overlay-text"><h2>お子様の お困りごと ありませんか？</h2></div>
+    <div class="overlay-image">
+     <img src="お困りごと.png" alt="お子様のお困りごとありませんか？">
+   </div>
     
     <section class="slider-section">
   <button class="slide-arrow left" aria-label="前へ">〈</button>
@@ -670,6 +676,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
