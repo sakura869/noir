@@ -95,10 +95,10 @@
         right: 12px;
       }
       /* 表示 */
-      .slider-section:hover
-      .slide-arrow {
-        opacity: 1;
-      }
+      .slider-section:hover .slide-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
       /* ホバーでふわっと */
       .slide-arrow:hover {
         transform: translateY(-50%) scale(1.15);
@@ -668,6 +668,7 @@ window.addEventListener('load', updateArrows);
   </body>
 </html>
         
+
 
 
 
