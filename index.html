@@ -577,6 +577,23 @@
         <img src="料金.jpg" alt="ご利用料金">
       </div>
     </div>
+
+<section id="contact-section" class="contact-form">
+  <h2 id="contact">お問い合わせ</h2>
+
+  <form>
+    <label>お名前</label>
+    <input type="text" required>
+
+    <label>メールアドレス</label>
+    <input type="email" required>
+
+    <label>お問い合わせ内容</label>
+    <textarea rows="4" required></textarea>
+
+    <button type="submit">送信</button>
+  </form>
+</section>
     
     <script>
   // トグル「ご利用開始までの流れ」
@@ -657,9 +674,23 @@ window.addEventListener('load', updateArrows);
     setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100);
   });
 </script>
-  </body>
+    
+<footer>
+  <p>
+    <a href="#contact" id="contact-link">お問い合わせ</a> ｜ 
+    <a href="https://www.instagram.com/あなたのID/" target="_blank" rel="noopener">
+      Instagram
+    </a>
+  </p>
+  <p class="small-text">
+    © 発達支援ノワール
+  </p>
+</footer>
+
+</body>
 </html>
         
+
 
 
 
