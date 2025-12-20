@@ -292,17 +292,24 @@
         position: relative;
       }
       @media (max-width: 480px) {
-        .circle-container {
-          display: flex;
-          justify-content: center;
-          padding: 0; line-height: 1.2;
-          margin: 25px auto 10px auto;
-        }
-        .circle {
-          width: 65px;
-          height: 65px;
-          font-size: 0.95em;
-          margin-left: -6px;
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;                 /* ← 中央基準 */
+  }
+
+  .circle {
+    width: 65px;
+    height: 65px;
+    font-size: 0.95em;
+    transform: translateX(-12px);
+  }
+
+  .circle:nth-child(1) { transform: translateX(0); }
+  .circle:nth-child(2) { transform: translateX(-8px); }
+  .circle:nth-child(3) { transform: translateX(-16px); }
+  .circle:nth-child(4) { transform: translateX(-24px); }
+  .circle:nth-child(5) { transform: translateX(
         }
       }
       .intro, .intro2 {
@@ -690,6 +697,7 @@ window.addEventListener('load', updateArrows);
 </body>
 </html>
         
+
 
 
 
