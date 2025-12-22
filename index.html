@@ -399,6 +399,49 @@
       #arrow流れ.rotate, #arrow料金.rotate {
         transform: scaleX(2) rotate(180deg);
         /* 矢印横伸ばし＆回転 */
+
+.access-section {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.access-section h2 {
+  color: #9F987D;
+  margin-bottom: 15px;
+}
+
+.access-text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56%; /* 16:9 */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.access-note {
+  font-size: 0.9em;
+  margin-top: 15px;
+  color: #777;
+}
         
       } /* フォームを非表示にする */
       .contact-form {
@@ -590,6 +633,28 @@
       </div>
     </div>
 
+<section class="access-section" id="access">
+  <h2>アクセス</h2>
+
+  <p class="access-text">
+    〒〇〇〇-〇〇〇〇<br>
+    新潟県新潟市〇〇区〇〇町〇丁目〇番〇号<br>
+    （〇〇バス停より徒歩〇分）
+  </p>
+
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=ここにマップURL"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <p class="access-note">
+    ※駐車場あり／送迎についてはお問い合わせください
+  </p>
+</section>
+    
 <section id="contact-section" class="contact-form">
   <h2 id="contact">お問い合わせ</h2>
 
@@ -711,6 +776,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html>
         
+
 
 
 
