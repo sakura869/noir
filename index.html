@@ -424,6 +424,31 @@
   margin: 0 auto 5px auto;  /* ← ブロック自体は中央 */
   max-width: 420px;          /* ← 行が長くなりすぎない */
 }
+      .access-text::before {
+  content: "📍";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  font-size: 1.1em;
+}
+
+/* 郵便番号 */
+.access-text .postal {
+  font-size: 0.85em;
+  color: #777;
+}
+
+/* 住所メイン */
+.access-text .address {
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* バス停など補足 */
+.access-text .station {
+  font-size: 0.85em;
+  color: #777;
+}
 
 .map-wrapper {
   position: relative;
@@ -642,7 +667,7 @@
   <h2>アクセス</h2>
 
   <p class="access-text">
-     <span class="postal">〒950－」0861</span><br>
+     <span class="postal">〒950－0861</span><br>
      <span class="address">新潟県新潟市東区中山6－19－5</span><br>
      <span class="station">ウェル新潟ビル206</span>
   </p>
@@ -782,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html>
         
+
 
 
 
