@@ -675,12 +675,7 @@ slider.addEventListener('scroll', updateArrows);
 window.addEventListener('load', updateArrows);
       
   // お問い合わせフォームスクロール
-  document.getElementById('contact-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    const form = document.getElementById('contact-section');
-    form.classList.add('show'); // フォームを表示
-    setTimeout(() => { form.scrollIntoView({ behavior: 'smooth' }); }, 100);
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const contactLink = document.getElementById('contact-link');
   const form = document.getElementById('contact-section');
 
@@ -718,6 +713,7 @@ window.addEventListener('load', updateArrows);
 </body>
 </html>
         
+
 
 
 
