@@ -407,7 +407,7 @@
   padding: 25px;
   background-color: rgba(255,255,255,0.75);
   border-radius: 20px;
-  text-align: left;
+  text-align: center;
   color: #555;
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
@@ -420,6 +420,9 @@
 .access-text {
   line-height: 1.6;
   margin-bottom: 20px;
+  text-align: left;          /* ← 住所だけ左揃え */
+  margin: 0 auto 20px auto;  /* ← ブロック自体は中央 */
+  max-width: 420px;          /* ← 行が長くなりすぎない */
 }
 
 .map-wrapper {
@@ -779,6 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html>
         
+
 
 
 
